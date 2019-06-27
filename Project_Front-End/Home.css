@@ -13,10 +13,10 @@ body{
     cursor: pointer;
 }
 
-.btn-sign-in{
+.btn-signOut{
     font-family: "Montserrat", sans-serif;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 900;
 }
 .btn-outline-light {
     margin-left: 20px;
