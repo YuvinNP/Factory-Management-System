@@ -4,4 +4,4 @@ front-end : Bootstrap
 back-end : Java
 database : MySql
 
-objective: improve the web development skills and Testing
+objective: improve the web development skills and Testing etc...
