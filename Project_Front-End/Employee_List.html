@@ -56,8 +56,11 @@
                     <!-- <h6 class="pt-3 ml-auto" style="font-size: 0.9rem;">User Name</h5> -->
                     <li class="nav-item avatar">
                         <a class="nav-link p-0" href="#">
+                            <span>
+                                
+                            </span>
                             <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small name">Valerie Luna</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small name">Administrator</span>
                             <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
                                 class="rounded-circle z-depth-0" alt="avatar image" height="45">
                         </a>
@@ -76,13 +79,13 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar" class="navbar-expand-md mb-5" style="margin-top: -40px">
-                <div class="sidebar-header  row" style="width: 265px;">
-                    <!-- <h3>Bootstrap Sidebar</h3> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                        alt="avatar image" height="65">
-                    <h5 class="mt-4 ml-3">Name</h5>
-                </div>
-            
+            <div class="sidebar-header  row" style="width: 265px;">
+                <!-- <h3>Bootstrap Sidebar</h3> -->
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                    alt="avatar image" height="65">
+                <h5 class="mt-4 ml-3">Name</h5>
+            </div>
+
             <ul class="list-unstyled components mb-2">
                 <p>Dashboard</p>
                 <li class="active">
@@ -130,17 +133,17 @@
 
         <!-- Page Content  -->
         <div id="content">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            
+            <nav class="navbar-expand-md mb-4 toggle-bar">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
+                        <span>Dashboard</span>
                     </button>
-                </div>    
-                </nav>
-                    
+                </div>
+            </nav>
+
 
             <h2>Collapsible Sidebar Using Bootstrap 4</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
@@ -207,6 +210,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
