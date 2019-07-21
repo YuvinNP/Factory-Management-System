@@ -1,10 +1,6 @@
 body {
     font-family: "Montserrat", sans-serif;
-    background:url(images/background.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size:cover;
+   
 }
 
 .logo {
@@ -19,9 +15,7 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-.name {
-    font-weight: 500;
-}
+
 
 .toggle-bar {
     margin-top: -50px;
@@ -121,13 +115,13 @@ body {
 .inventryopt .title
 {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 500;
     color: #4e5052;
     letter-spacing: 1px;
     text-transform: capitalize;
     margin-bottom: 5px;
 }
-.inventryopt, .post
+.inventryopt .post
 {
     display:block;
     font-size: 15px;

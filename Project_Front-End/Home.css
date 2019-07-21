@@ -1,7 +1,10 @@
 body{
     font-family: "Montserrat", sans-serif;
     font-size: 1.0rem;
-   
+    background-image: url(./sticks.jpg);
+    background-repeat: no-repeat;
+
+    
 }
 
 .logo{
@@ -23,3 +26,7 @@ body{
     margin-left: 20px;
   }
   
+  .login-photo{
+
+    width: 5.3rem;
+}
