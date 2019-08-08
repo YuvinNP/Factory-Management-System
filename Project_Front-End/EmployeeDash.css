@@ -128,3 +128,8 @@ body {
     color:#4e5052;
     text-transform: capitalize; all: 
 }
+
+.icon{
+    width: 5.0rem;
+    z-index: -1;
+}

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto Slab', serif;
+    
     font-size: 1.0rem;
 }
 
@@ -32,6 +32,11 @@ body {
     content: '\f104';
     font-family: 'Font Awesome 5 Free';
     margin-right: .1rem;
+}
+
+.wrapper{
+    position: fixed;
+    margin-bottom: 40px;
 }
 
 /* .container {
