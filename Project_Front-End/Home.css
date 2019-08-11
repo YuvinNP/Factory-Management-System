@@ -30,3 +30,35 @@ body{
 
     width: 5.3rem;
 }
+
+.features-icon {
+    font-size: 3rem;
+    color: #5a34fc;
+  }
+  
+  .overview-row {
+    margin-top: 5rem;
+  }
+  
+  .overview-header {
+    font-weight: 600;
+  }
+  
+  .features-icon,
+  .overview-header,
+  .info-width {
+    padding: 1rem 0;
+  }
+
+  .feature-cards{
+
+   margin-left: 100px;
+   height: 280px;
+   margin-top: 10px;
+   padding-bottom: 40px;
+
+  }
+  .image{
+      margin-top: 40px;
+      width: 70px;
+  }
