@@ -17,6 +17,10 @@ body{
     cursor: pointer;
 }
 
+.navbar-position{
+
+    z-index: 1;
+}
 .btn-signOut{
     font-family: "Montserrat", sans-serif;
     font-size: 0.9rem;
