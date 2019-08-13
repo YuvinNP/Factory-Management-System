@@ -27,3 +27,8 @@ border-bottom-left-radius: 0.25rem;
 .input-group.md-form.form-sm.form-2 input.purple-border {
 border: 1px solid #4628B8;
 }
+
+.btn-search{
+  height: 39px;
+  margin-left: 2px;
+}
