@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./Employee_List.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="./js/Registration.js"></script>
 
     <title>Dashboard</title>
 </head>
@@ -90,11 +91,11 @@
             </div>
             <hr class="sidebar-hr my-0">
             <ul class="list-unstyled components">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
                 <hr class="sidebar-hr" style="margin-top:1.2rem;">
                 <li class="active">
-                       
+
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Profile</a>
 
                 </li>
@@ -107,7 +108,7 @@
 
                 </li>
                 <li>
-                    <a href="#">Portfolio</a>
+                    <a href="#">Leaves</a>
                 </li>
                 <li>
                     <a href="#">Settings</a>
@@ -128,15 +129,451 @@
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-bars"></i>
                     </button>
+
+
                 </div>
             </nav>
 
+            <!-- <div class="row">
+                <div class="container search-area col-md-10" id="">
+                    <form class="form-group">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <input type="email" class="form-control search-text" id="inputEmail4"
+                                    placeholder="Search">
+                            </div>
+
+                            <button class="btn btn-light col-md-1 search">Search</button>
+
+                        </div>
+                    </form>
+                </div>
+
+                <button class="btn btn add-btn col-md-1" data-toggle="modal" data-target="#exampleModal"><i
+                        class="fas fa-plus"></i>Add New</button>
 
 
+            </div> -->
+            <div class="container">
+
+                    <div class="row">
+          <div class="col">
+            <h4 style="text-align: left;">Employee List Table</h4>
+          </div>
+      
+          <div class="col-md-auto">
+      
+            <div class="input-group md-form form-sm form-2 pl-0">
+              <input class="form-control my-0 py-1 purple-border" type="text" placeholder="Search" aria-label="Search" style="width:300px;">
+              <div class="input-group-append">
+                <button class="btn btn-search input-group-text purple lighten-1" id="basic-text1" style="background:#4628B8;height: 39px;margin-left: 2px;"><i class="fas fa-search text-white"
+                    aria-hidden="true" ></i></span>
+              </div>
+            </div>
+      
+          </div>
+      
+          <div class="col col-md-2">
+            <button class="btn btn add-btn" type="button" style="background:#4628B8; color:white; width:110px; height:39px;">
+                <i class="fas fa-plus"></i>
+                <span>Add New</span> 
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+            <div class="table-wrapper-scroll-y my-custom-scrollbar" style="margin-top:40px;">
+                <table class="table table-bordered table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Employee asda</th>
+                            <th>Employee sdf</th>
+                            <th>Employee ID</th>
+                            <th>Employee ID</th>
+                            <th>Employee ID</th>
+                            <th>Employee ID</th>
+                            <th>Employee ID</th>
+                            <th>Employee ID</th>
+                            <th>Employee ID</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+
+                        <tr class="grid">
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                            <td>asdasdasd</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" style="background-color:rgba(0,0,0,0.5);">
+        <div class="modal-dialog registration-modal" role="document" >
+            <div class="modal-content"  style="width: 1200px;margin-bottom:30px;">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" >
+                    <div class="container" >
+                        <form id="registerForm">
+                            <div class="row">
+                                <h2 class="col-5 mx-auto title pb-3">Employee Registration</h2>
+                                <div class="form-group col-md-2">
+                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Employee ID">
+                                </div>
+                            </div>
+                            <div class="form pl-3 pr-3">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">First Name</label>
+                                        <input type="email" class="form-control" id="inputEmail4"
+                                            placeholder="First Name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Unit</label>
+                                        <select id="inputUnit" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>Production</option>
+                                            <option>Management</option>
+                                            <option>Distribution</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Last Name</label>
+                                        <input type="email" class="form-control" id="inputEmail4"
+                                            placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Designation</label>
+                                        <select id="inputDesig" onchange="changeType();" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>Worker</option>
+                                            <option>Manager</option>
+                                            <option>Marketing Agent</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Gender</label>
+                                        <select id="inputState" class="form-control">
+                                            <option class="dropdown-item" selected>Choose...</option>
+                                            <option class="dropdown-item">Male</option>
+                                            <option class="dropdown-item">Female</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Employee Type</label>
+                                        <select id="inputType" onchange="changeDesig();" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>Full-Time</option>
+                                            <option>Part-Time</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputUsername">Username</label>
+                                        <input type="email" class="form-control" id="inputUsername"
+                                            placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputContact">Contact</label>
+                                        <input type="email" class="form-control" id="inputContact"
+                                            placeholder="Contact">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPwrd">Create Password</label>
+                                        <input type="password" class="form-control" id="inputPwrd"
+                                            placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputContact">Address</label>
+                                        <input type="text" class="form-control" id="inputContact" placeholder="Address">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="confirmPwrd">Confirm Password</label>
+                                        <input type="password" class="form-control" id="confirmPwrd"
+                                            placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
-   
-       
+
     <!-- Footer -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -148,10 +585,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery.freezeheader.js"></script>
+    <script>
+        $('table').freezeheader({
+            height: "300px"
+        })
+    </script>
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
+
             });
         });
     </script>
