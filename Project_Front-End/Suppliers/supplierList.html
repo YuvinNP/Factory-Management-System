@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="table.css">
 
-
+  
     <title>Supplier List</title>
+
 </head>
 
 <body>
@@ -165,13 +166,95 @@
     </div>
 
     <div class="col col-lg-2">
-      <button class="btn btn-primary" type="button" style="background:#4628B8; color:white; width:150px; height:35px;">
+
+      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#ModalCenter" style="background:#4628B8; color:white; width:150px; height:35px;">
           <i class="fas fa-plus"></i>
           <span>Add Supplier</span>
       </button>
+
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h4 class="modal-title" id="ModalCenterTitle">Add Supplier</h4>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <form id = "log" class="needs-validation" novalidate>
+
+      <div class="form-group">
+
+          <label for="validation1">Supplier Name</label>
+          <input type="text" class="form-control" id="validation1" placeholder="Supplier Name" required>
+          <div class="invalid-feedback">
+              Please provide a supplier name.
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="validation2">Product ID</label>
+          <input type="text" class="form-control" id="validation2" placeholder="Product ID" required>
+          <div class="invalid-feedback">
+              Please provide a product ID.
+          </div>
+      </div>
+
+
+      <div class="form-group">
+          <label for="validation3">Product Name</label>
+          <input type="text" class="form-control" id="validation3" placeholder="Product Name" required>
+          <div class="invalid-feedback">
+              Please provide a product name.
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="validation4">Contact Number</label>
+          <input type="number" class="form-control" id="validation4" placeholder="Contact Number" required>
+              <div class="invalid-feedback">
+                  Please provide a contact number.
+              </div>
+
+      </div>
+
+      <div class="form-group">
+          <label for="validation5">Email</label>
+          <input type="text" class="form-control" id="validation5" placeholder="Email" required>
+          <div class="invalid-feedback">
+              Please provide a valid city.
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="validation6">Address</label>
+          <input type="text" class="form-control" id="validation6" placeholder="Address" required>
+          <div class="invalid-feedback">
+              Please provide a valid email.
+          </div>
+      </div>
+
+  </form>
+
+
+      </div>
+      <div class="modal-footer">
+      <button class="btn btn-primary btn-block" type="submit"> Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -187,6 +270,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Address</th>
                         <th scope="col">Product ID</th>
+                        <th scope="col">Product Name</th>
                         <th scope="col">edit</th>
                         <th scope="col">delete</th>
                     </tr>
@@ -201,6 +285,7 @@
                         <td>@mdo</td>
                         <td>malabe</td>
                         <td>p100</td>
+                        <td>p100</td>
                         <!--td><a href="#"><i class='material-icons' style="color:red"></i></a></td-->
                         <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td>
@@ -212,6 +297,7 @@
                         <td>@mdo</td>
                         <td>malabe</td>
                         <td>p100</td>
+                        <td>p100</td>
                         <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td>
                     </tr>
@@ -221,6 +307,7 @@
                         <td>0717567589</td>
                         <td>@mdo</td>
                         <td>malabe</td>
+                        <td>p100</td>
                         <td>p100</td>
                         <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td>
@@ -233,16 +320,6 @@
                         <td>@mdo</td>
                         <td>malabe</td>
                         <td>p100</td>
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
                         <td>p100</td>
                         <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td>
@@ -255,16 +332,6 @@
                         <td>@mdo</td>
                         <td>malabe</td>
                         <td>p100</td>
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
                         <td>p100</td>
                         <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td>
@@ -277,16 +344,6 @@
                         <td>@mdo</td>
                         <td>malabe</td>
                         <td>p100</td>
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
                         <td>p100</td>
                         <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td>
@@ -299,16 +356,6 @@
                         <td>@mdo</td>
                         <td>malabe</td>
                         <td>p100</td>
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
                         <td>p100</td>
                         <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td>
@@ -320,6 +367,55 @@
                         <td>0717567589</td>
                         <td>@mdo</td>
                         <td>malabe</td>
+                        <td>p100</td>
+                        <td>p100</td>
+                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Larry</td>
+                        <td>0717567589</td>
+                        <td>@mdo</td>
+                        <td>malabe</td>
+                        <td>p100</td>
+                        <td>p100</td>
+                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Larry</td>
+                        <td>0717567589</td>
+                        <td>@mdo</td>
+                        <td>malabe</td>
+                        <td>p100</td>
+                        <td>p100</td>
+                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Larry</td>
+                        <td>0717567589</td>
+                        <td>@mdo</td>
+                        <td>malabe</td>
+                        <td>p100</td>
+                        <td>p100</td>
+                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Larry</td>
+                        <td>0717567589</td>
+                        <td>@mdo</td>
+                        <td>malabe</td>
+                        <td>p100</td>
                         <td>p100</td>
                         <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td>
@@ -334,6 +430,7 @@
                       <th scope="col">Email</th>
                       <th scope="col">Address</th>
                       <th scope="col">Product ID</th>
+                      <th scope="col">Product Name</th>
                       <th scope="col">edit</th>
                       <th scope="col">delete</th>
                   </tr>
@@ -344,6 +441,31 @@
 
 
 
+            <!-- jQuery library -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+
+            <!-- Popper -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+            <!-- Latest compiled and minified Bootstrap JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+            <!-- Initialize Bootstrap functionality -->
+            <script>
+            // Initialize tooltip component
+            $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+            })
+
+            // Initialize popover component
+            $(function () {
+              $('[data-toggle="popover"]').popover()
+            })
+          </script>
+
+
+          <!--
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -360,7 +482,31 @@
                   $('#dtBasicExample').DataTable();
                   $('.dataTables_length').addClass('bs-select');
                 });
-            </script
+            </script>
+
+            <script>
+                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                (function() {
+                    'use strict';
+                    window.addEventListener('load', function() {
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.getElementsByClassName('needs-validation');
+                        // Loop over them and prevent submission
+                        var validation = Array.prototype.filter.call(forms, function(form) {
+                            form.addEventListener('submit', function(event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            }, false);
+                        });
+                    }, false);
+                })();
+            </script>
+-->
+
+
 </body>
 
 </html>
