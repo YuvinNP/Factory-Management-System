@@ -16,8 +16,8 @@
 
     <!-- Bootstrap CDN and external CSS -->
     <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./Employee_List.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/Employee_List.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script src="./js/Registration.js"></script>
 
     <title>Dashboard</title>

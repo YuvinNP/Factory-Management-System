@@ -126,15 +126,16 @@ body {
     text-transform: capitalize;
     margin-bottom: 5px;
 }
-.inventryopt .post
+.inventryopt, .post
 {
     display:block;
     font-size: 15px;
     color:#4e5052;
-    text-transform: capitalize; all: 
+    text-transform: capitalize;
 }
 
 .icon{
     width: 5.0rem;
     z-index: -1;
 }
+
