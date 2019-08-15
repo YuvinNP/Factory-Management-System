@@ -361,7 +361,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content" style=" background-color: #fefefe;">
                   <div class="modal-header">
-                    <h4 class="modal-title">Add Supplier</h4>
+                    <h4 class="modal-title">Add Supplier</h4> 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -369,9 +369,13 @@
                   <div class="modal-body">
 
                     <form id = "log" class="needs-validation" novalidate>
-
+                    
+                     <div class="form-group">
+                       <label>Supplier ID</label>
+                       <input type="text" class="form-control" id="supID" placeholder="Supplier ID">
+                    </div>
+                    
                     <div class="form-group">
-
                         <label for="validation1">Supplier Name</label>
                         <input type="text" class="form-control" id="validation1" placeholder="Supplier Name" required>
                         <div class="invalid-feedback">
@@ -388,7 +392,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="validation2">Product Name</label>
+                        <label for="validation3">Product Name</label>
                         <input type="text" class="form-control" id="validation3" placeholder="Product Name" required>
                         <div class="invalid-feedback">
                             Please provide a product name.
@@ -396,7 +400,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="validation3">Contact Number</label>
+                        <label for="validation4">Contact Number</label>
                         <input type="number" class="form-control" id="validation4" placeholder="Contact Number" required>
                             <div class="invalid-feedback">
                                 Please provide a contact number.
@@ -405,14 +409,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="validation4">Email</label>
+                        <label for="validation5">Email</label>
                         <input type="text" class="form-control" id="validation5" placeholder="Email" required>
                         <div class="invalid-feedback">
                             Please provide a valid city.
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="validation5">Address</label>
+                        <label for="validation6">Address</label>
                         <input type="text" class="form-control" id="validation6" placeholder="Address" required>
                         <div class="invalid-feedback">
                             Please provide a valid email.
