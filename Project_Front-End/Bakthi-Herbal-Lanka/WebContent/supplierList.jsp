@@ -1,8 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<title>Supplier List</title>
+
+  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900" rel="stylesheet">
@@ -14,18 +18,15 @@
 
     <!-- Bootstrap CDN and external CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="dashBoardStyleSheet.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="./css/dashBoardStyleSheet.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/table.css">
 
-
-    <title>Supplier List</title>
 
 </head>
-
 <body>
 
-    <div class="container-fluid">
+  <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
             <a class="navbar-brand logo" href="#">
@@ -56,24 +57,19 @@
                             Help
                         </a>
                     </li>
-                    <!-- <h6 class="pt-3 ml-auto" style="font-size: 0.9rem;">User Name</h5> -->
+                   
                     <li class="nav-item avatar">
                         <a class="nav-link p-0" href="#">
                             <span>
 
                             </span>
-                            <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
+                          
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small name">Administrator</span>
                             <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45">
                         </a>
                     </li>
                 </ul>
-                <!-- <div class="nav-item avatar">
-                            <a class="nav-link p-0" href="#">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                                      alt="avatar image" height="45">
-                                  </a>
-                    </div> -->
+               
             </div>
         </nav>
     </div>
@@ -82,7 +78,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar" class="navbar-expand-md mb-5" style="margin-top: -40px">
             <div class="sidebar-header  row" style="width: 265px;">
-                <!-- <h3>Bootstrap Sidebar</h3> -->
+               
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="65">
                 <h5 class="mt-4 ml-3">Name</h5>
             </div>
@@ -205,9 +201,6 @@
                         <td>malabe</td>
                         <td>p100</td>
                         <td>p100</td>
-                        <!--td><a href="#"><i class='material-icons' style="color:red"></i></a></td-->
-                        <!--td><button><i class="material-icons" style="color:red;">&#xe150;</i></button></td>
-                        <td><i class="fa fa-trash" style="color:red;"></i></td-->
                         <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
                         <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
 
@@ -483,6 +476,7 @@
             </script>
 
 
-</body>
 
+
+</body>
 </html>
