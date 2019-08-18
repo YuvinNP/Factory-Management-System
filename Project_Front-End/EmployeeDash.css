@@ -54,7 +54,7 @@ body {
     height: 100px;
     
     margin-bottom: 30px;
-   margin-top: 20px; 
+    margin-top: 20px; 
     position: relative;
     bottom: 90%;
     right: 0;
@@ -77,11 +77,11 @@ body {
     
     
 }
-.inventryopt:hover .pic:before  
+.inventryopt:hover .pic:before
 {
     height: 100%
 }
-.inventryopt .pic:after
+.pic:after
 {
     content: "";
     width: 100%;
@@ -92,9 +92,9 @@ body {
     top: 0;
     left:0;
     z-index: -1;
-    
+
 }
-.inventryopt .pic i
+ .pic i
 {
    
     width:80%;
@@ -103,8 +103,8 @@ body {
     transform: scale(1);
     transition: all 0.9s ease 0s;
     
-}
-.inventryopt:hover .pic i
+ }
+  .pic i:hover
 {
    
     transform: scale(0.7);

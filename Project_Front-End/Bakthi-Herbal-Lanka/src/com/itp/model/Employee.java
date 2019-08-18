@@ -12,6 +12,8 @@ public class Employee {
 
 	private String employeeID;
 	
+	private String img;
+		
 	private String fname;
 	
 	private String lname;
@@ -35,6 +37,14 @@ public class Employee {
 	private String password;
 	
 
+	public String getImg() {
+		return img;
+	}
+	
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
 	public String getEmployeeID() {
 		return employeeID;
 	}
