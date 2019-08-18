@@ -19,13 +19,13 @@ public static String queryByID(String id) throws SAXException, IOException, Pars
 		NodeList nodelist;
 		Element element = null;
 		
-		nodelist = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + "\\wtpwebapps\\KYNK Hospitals\\WEB-INF\\HospitalQuery.xml"))
-					.getElementsByTagName(CommanConstants.XML_TAG_NAME);
+		nodelist = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + "\\wtpwebapps\\Bakthi-Herbal-Lanka\\WEB-INF\\Factory.xml"))
+					.getElementsByTagName(CommonConstants.XML_TAG_NAME);
 		
 
 		for (int value = 0; value < nodelist.getLength(); value++) {
 			element = (Element) nodelist.item(value);
-			if (element.getAttribute(CommanConstants.ATTR_ID).equals(id))
+			if (element.getAttribute(CommonConstants.ATTR_ID).equals(id))
 				break;
 		}
 		return element.getTextContent().trim();

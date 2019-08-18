@@ -2,7 +2,7 @@ package com.itp.util;
 
 
 
-public class CommanConstants {
+public class CommonConstants {
 		
 	public static final String QUERY_XML = "queryFilePath";
 	
@@ -35,5 +35,20 @@ public class CommanConstants {
     public static final String QUERY_ID_UPDATE_SUPPLIER  = "update_supplier";
 	
 	public static final String QUERY_ID_REMOVE_SUPPLIER  = "remove_supplier";
+	
+	public static final int COLUMN_INDEX_ONE = 1;
+	
+	public static final int COLUMN_INDEX_TWO = 2;
+	
+	public static final int COLUMN_INDEX_THREE = 3;
+	
+	public static final int COLUMN_INDEX_FOUR = 4;
+	
+	public static final int COLUMN_INDEX_FIVE = 5;
+	
+	public static final int COLUMN_INDEX_SIX = 6;
+	
+	public static final int COLUMN_INDEX_SEVEN = 7;
+	
  
 }
