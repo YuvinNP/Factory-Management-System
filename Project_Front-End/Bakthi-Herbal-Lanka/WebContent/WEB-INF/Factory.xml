@@ -1,1 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+
+<!--SUPPLIER BEGIN -->
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_supplier">
+        <![CDATA[
+          	insert into supplier (supID, supName, telNo, email, address, proId, proName) 
+          	values (?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular supplier by id Query -->
+	<query id="supplier_by_id">
+         <![CDATA[        
+            select * from supplier where supplier.supID = ?
+        ]]>
+	</query>
+
+	<!-- Select all suppliers -->
+	<query id="all_suppliers">
+         <![CDATA[        
+            select * from supplier
+        ]]>
+	</query>
+
+	<!-- Delete a particular supplier by id Query -->
+	<query id="remove_supplier">
+         <![CDATA[        
+            delete from supplier where supplier.supID = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular supplier by id Query -->
+	<query id="update_supplier">
+         <![CDATA[        
+            update supplier as s 
+            set s.supName = ?, s.telNo = ?, s.email = ?, s.address = ?, s.proId = ?, s.proName = ?  
+            where s.supID = ?
+        ]]>
+	</query>
+	
+		<!-- Get employee IDs Query -->
+	<query id="supplier_ids">
+         <![CDATA[        
+            select s.supID from supplier as s
+            
+        ]]>
+	</query>
+<!-- SUPPLIER END -->
+
+</Querys>
+

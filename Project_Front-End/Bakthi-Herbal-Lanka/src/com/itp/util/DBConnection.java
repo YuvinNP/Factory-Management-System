@@ -18,9 +18,9 @@ public class DBConnection extends CommonUtilities{
 	public static Connection getDBConnection() throws ClassNotFoundException, SQLException {
 		
 		if(connection==null || connection.isClosed()) {
-			Class.forName(properties.getProperty(CommanConstants.DRIVER_NAME));
-			connection = DriverManager.getConnection(properties.getProperty(CommanConstants.URL),
-					properties.getProperty(CommanConstants.USERNAME), properties.getProperty(CommanConstants.PASSWORD));
+			Class.forName(properties.getProperty(CommonConstants.DRIVER_NAME));
+			connection = DriverManager.getConnection(properties.getProperty(CommonConstants.URL),
+					properties.getProperty(CommonConstants.USERNAME), properties.getProperty(CommonConstants.PASSWORD));
 			System.out.println("Connected");
 		}
 		
