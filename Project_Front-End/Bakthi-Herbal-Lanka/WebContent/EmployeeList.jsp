@@ -94,13 +94,13 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
                 <hr class="sidebar-hr" style="margin-top:1.2rem;">
-                <li class="active">
+                <li>
 
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Profile</a>
 
                 </li>
-                <li>
-                    <a href=" #">Employee List</a>
+                <li  class="active">
+                    <a href="Employee_List.html">Employee List</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
@@ -108,10 +108,10 @@
 
                 </li>
                 <li>
-                    <a href="#">Login Authentication</a>
+                    <a href="Login_Authentication.html">Login Authentication</a>
                 </li>
-                <li>
-                    <a href="#">Leaves</a>
+                <li >
+                    <a href="Leave_List.html">Leaves</a>
                 </li>
                 <li>
                     <a href="#">Settings</a>
@@ -137,26 +137,7 @@
                 </div>
             </nav>
 
-            <!-- <div class="row">
-                <div class="container search-area col-md-10" id="">
-                    <form class="form-group">
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <input type="email" class="form-control search-text" id="inputEmail4"
-                                    placeholder="Search">
-                            </div>
-
-                            <button class="btn btn-light col-md-1 search">Search</button>
-
-                        </div>
-                    </form>
-                </div>
-
-                <button class="btn btn add-btn col-md-1" data-toggle="modal" data-target="#exampleModal"><i
-                        class="fas fa-plus"></i>Add New</button>
-
-
-            </div> -->
+           
             <div class="container">
 
                 <div class="row">
@@ -190,10 +171,12 @@
 
 
 
-            <div class="table-wrapper-scroll-y my-custom-scrollbar" style="margin-top:40px;height: 500px;">
-                <table class="table table-bordered table-striped mb-0">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar"
+                style="margin-top:40px;height: 500px;width: 1270px;">
+                <table id="tableResp" class="table table-bordered table-striped mb-0 table-lg">
                     <thead>
                         <tr>
+                            <th scope="col"></th>
                             <th scope="col">Employee ID</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
@@ -210,7 +193,9 @@
                     </thead>
                     <tbody>
                         <tr class="grid">
-                            <td>asdasdasd</td>
+
+                            <td><img class="table-img" src="./images/settings.png"></td>
+                            <td>yuiyuiui</td>
                             <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -221,11 +206,13 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                            
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
+
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -237,10 +224,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -252,10 +241,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -267,10 +258,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -282,10 +275,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -297,10 +292,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -312,10 +309,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -327,10 +326,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -342,10 +343,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
                         <tr class="grid">
+                            <td>yuiyuiui</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
@@ -357,111 +360,12 @@
                             <td>asdasdasd</td>
                             <td>asdasdasd</td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
+                                        class="far fa-trash-alt"></i></button></td>
                         </tr>
 
-                        <tr class="grid">
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                        </tr>
+                        
 
-                        <tr class="grid">
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                        </tr>
 
                     </tbody>
 
@@ -478,18 +382,29 @@
         <div class="modal-dialog registration-modal" role="document">
             <div class="modal-content" style="width: 1200px;margin-bottom:30px;">
                 <div class="modal-header">
-
+                    <h4 class="title col-md-6">Employee Registration</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <form id="registerForm">
-                            <div class="row">
-                                <h2 class="col-5 mx-auto title pb-3">Employee Registration</h2>
-                                <div class="form-group col-md-2">
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Employee ID">
+                        <form id="registerForm" method="POST" action="AddEmployeeServlet" enctype="multipart/form-data">
+                            <div class="form pl-3 pr-3">
+                                <div class="row">
+
+                                    <div class="form-group col-md-2">
+                                        <input type="email" class="form-control" id="inputEmail4"
+                                            placeholder="Employee ID" disabled="disabled">
+                                    </div>
+                                    <div class="custom-file col-md-4 ml-auto">
+                                       
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose Image...</label>
+                                            <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" required>
+                                            
+                                          </div>
+
+                                    
                                 </div>
                             </div>
                             <div class="form pl-3 pr-3">
@@ -497,12 +412,12 @@
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">First Name</label>
                                         <input type="email" class="form-control" id="inputEmail4"
-                                            placeholder="First Name">
+                                            placeholder="First Name" name="fname">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Unit</label>
-                                        <select id="inputUnit" class="form-control">
-                                            <option selected>Choose...</option>
+                                        <select id="inputUnit" name="unit" class="form-control">
+                                            <option selected="" value="Default">Choose...</option>
                                             <option>Production</option>
                                             <option>Management</option>
                                             <option>Distribution</option>
@@ -512,13 +427,13 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Last Name</label>
-                                        <input type="email" class="form-control" id="inputEmail4"
+                                        <input type="email" class="form-control" name="lname" id="inputEmail4"
                                             placeholder="Last Name">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Designation</label>
-                                        <select id="inputDesig" onchange="changeType();" class="form-control">
-                                            <option selected>Choose...</option>
+                                        <select id="inputDesig" onchange="changeType();" class="form-control" name="designation" >
+                                            <option selected value="Default">Choose...</option>
                                             <option>Worker</option>
                                             <option>Manager</option>
                                             <option>Marketing Agent</option>
@@ -528,8 +443,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>Gender</label>
-                                        <select id="inputState" class="form-control">
-                                            <option class="dropdown-item" selected>Choose...</option>
+                                        <select id="inputState" class="form-control" name="gender">
+                                            <option class="dropdown-item" selected value="Default">Choose...</option>
                                             <option class="dropdown-item">Male</option>
                                             <option class="dropdown-item">Female</option>
 
@@ -537,8 +452,8 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Employee Type</label>
-                                        <select id="inputType" onchange="changeDesig();" class="form-control">
-                                            <option selected>Choose...</option>
+                                        <select id="inputType" onchange="changeDesig();" class="form-control" name="empType">
+                                            <option selected value="Default">Choose...</option>
                                             <option>Full-Time</option>
                                             <option>Part-Time</option>
 
@@ -548,36 +463,41 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                        <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputUsername">Username</label>
-                                        <input type="email" class="form-control" id="inputUsername"
+                                        <input type="email" class="form-control" name="username" id="inputUsername"
                                             placeholder="Username">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="inputContact">Contact</label>
-                                        <input type="email" class="form-control" id="inputContact"
+                                        <input type="email" class="form-control" name="contact" id="inputContact"
                                             placeholder="Contact">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputPwrd">Create Password</label>
-                                        <input type="password" class="form-control" id="inputPwrd"
+                                        <input type="password" class="form-control" name="createPwrd" id="inputPwrd"
                                             placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="inputContact">Address</label>
-                                        <input type="text" class="form-control" id="inputContact" placeholder="Address">
+                                        <input type="text" class="form-control" name="address" id="inputContact" placeholder="Address">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="confirmPwrd">Confirm Password</label>
-                                        <input type="password" class="form-control" id="confirmPwrd"
+                                        <input type="password" class="form-control" name="confirmPwrd" id="confirmPwrd"
                                             placeholder="Confirm Password">
                                     </div>
+                                </div>
+
+                               <input type="button" class="btn btn-danger" style="width: 120px;" value="Cancel">
+                                <div class="float-right">
+                                    <input class="btn btn-primary mr-auto" type="submit" style="width:120px;" value="Confirm">
                                 </div>
                             </div>
                         </form>
@@ -617,6 +537,8 @@
             });
         });
     </script>
+
+    >
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {

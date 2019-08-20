@@ -22,7 +22,7 @@ public class CommonConstants {
 	
 	
 	/*supplier*/
-	public static final String SUPPLIER_ID_PRIFIX = "S000";
+	public static final String SUPPLIER_ID_PRIFIX = "S00";
 
 	public static final String QUERY_ID_GET_SUPPLIER_ID = "supplier_by_id";
 	
@@ -35,6 +35,23 @@ public class CommonConstants {
     public static final String QUERY_ID_UPDATE_SUPPLIER  = "update_supplier";
 	
 	public static final String QUERY_ID_REMOVE_SUPPLIER  = "remove_supplier";
+	
+	/* employee */
+	
+	public static final String EMPLOYEE_ID_PRIFIX = "E00";
+	
+	public static final String QUERY_ID_GET_EMPLOYEE_ID = "supplier_by_id";
+	
+	public static final String QUERY_ID_GET_EMPLOYEE_IDS = "supplier_ids";
+	
+	public static final String QUERY_ID_ALL_EMPLOYEES = "all_suppliers";
+	
+	public static final String QUERY_ID_INSERT_EMPLOYEE= "insert_supplier";
+	
+    public static final String QUERY_ID_UPDATE_EMPLOYEE  = "update_supplier";
+	
+	public static final String QUERY_ID_REMOVE_EMPLOYEE  = "remove_supplier";
+	
 	
 	public static final int COLUMN_INDEX_ONE = 1;
 	

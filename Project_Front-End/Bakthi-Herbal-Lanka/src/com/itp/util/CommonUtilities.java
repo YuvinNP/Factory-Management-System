@@ -36,4 +36,17 @@ public class CommonUtilities {
 		}
 		return id;
 	}
+	
+	public static String generateEmployeeID(ArrayList<String> arrayList) {
+
+		String id;
+		int next = arrayList.size();
+		next++;
+		id = CommonConstants.EMPLOYEE_ID_PRIFIX + next;
+		if (arrayList.contains(id)) {
+			next++;
+			id = CommonConstants.EMPLOYEE_ID_PRIFIX + next;
+		}
+		return id;
+	}
 }

@@ -39,7 +39,9 @@ body {
     margin-bottom: 40px;
 }
 
-
+label{
+    color: #2581EA;
+}
 
   .search, .search-text{
 

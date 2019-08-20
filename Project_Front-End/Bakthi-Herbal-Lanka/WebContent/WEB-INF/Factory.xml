@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Querys>
+<!-- EMPLOYEE BEGIN -->
 
 
+
+
+
+
+
+<!-- EMPLOYEE END -->
 <!--SUPPLIER BEGIN -->
 
 	<!-- Select all customer orders Query -->

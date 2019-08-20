@@ -1,6 +1,6 @@
 body {
     font-family: "Montserrat", sans-serif;
-    font-size: 1.0rem;
+    font-size: 0.9rem;
 }
 
 .logo {
@@ -39,7 +39,9 @@ body {
     margin-bottom: 40px;
 }
 
-
+label{
+    color: #2581EA;
+}
 
   .search, .search-text{
 
@@ -81,3 +83,11 @@ body {
 
         margin-right: 850px;
     }
+
+    .table-img{
+
+        width:40px;
+        margin-left: 20px;
+    }
+
+    
