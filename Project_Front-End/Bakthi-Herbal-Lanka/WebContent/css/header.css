@@ -19,22 +19,4 @@ body {
     font-weight: 500;
 }
 
-.toggle-bar {
-    margin-top: -50px;
-}
 
-.sidebar-hr {
-    border-top: 2px solid rgba(255, 255, 255, 0.15);
-}
-
-#sidebarToggle::after {
-    font-weight: 900;
-    content: '\f104';
-    font-family: 'Font Awesome 5 Free';
-    margin-right: .1rem;
-}
-
-.wrapper{
-    position: fixed;
-    margin-bottom: 40px;
-}

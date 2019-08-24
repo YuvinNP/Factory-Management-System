@@ -40,18 +40,31 @@ public class CommonConstants {
 	
 	public static final String EMPLOYEE_ID_PRIFIX = "E00";
 	
-	public static final String QUERY_ID_GET_EMPLOYEE_ID = "supplier_by_id";
+	public static final String QUERY_ID_GET_EMPLOYEE_ID = "employee_by_id";
 	
-	public static final String QUERY_ID_GET_EMPLOYEE_IDS = "supplier_ids";
+	public static final String QUERY_ID_GET_EMPLOYEE_IDS = "employee_ids";
 	
-	public static final String QUERY_ID_ALL_EMPLOYEES = "all_suppliers";
+	public static final String QUERY_ID_ALL_EMPLOYEES = "all_employees";
 	
-	public static final String QUERY_ID_INSERT_EMPLOYEE= "insert_supplier";
+	public static final String QUERY_ID_INSERT_EMPLOYEE= "insert_employee";
 	
-    public static final String QUERY_ID_UPDATE_EMPLOYEE  = "update_supplier";
+    public static final String QUERY_ID_UPDATE_EMPLOYEE  = "update_employee";
 	
-	public static final String QUERY_ID_REMOVE_EMPLOYEE  = "remove_supplier";
+	public static final String QUERY_ID_REMOVE_EMPLOYEE  = "remove_employee";
 	
+	
+	/* login */
+	public static final String LOGIN_ID_PRIFIX = "L00";
+	
+	public static final String QUERY_ID_GET_LOGIN_ID = "login_by_id";
+	
+	public static final String QUERY_ID_GET_LOGIN_IDS = "login_ids";
+	
+	public static final String QUERY_ID_ALL_LOGINS = "all_login";
+	
+	public static final String QUERY_ID_INSERT_LOGIN = "insert_login_creds";
+
+	public static final String QUERY_ID_REMOVE_LOGIN  = "remove_login";
 	
 	public static final int COLUMN_INDEX_ONE = 1;
 	
@@ -66,6 +79,14 @@ public class CommonConstants {
 	public static final int COLUMN_INDEX_SIX = 6;
 	
 	public static final int COLUMN_INDEX_SEVEN = 7;
+	
+	public static final int COLUMN_INDEX_EIGHT = 8;
+	
+	public static final int COLUMN_INDEX_NINE = 9;
+	
+	public static final int COLUMN_INDEX_TEN = 10;
+	
+	public static final int COLUMN_INDEX_ELEVEN = 11;
 	
  
 }

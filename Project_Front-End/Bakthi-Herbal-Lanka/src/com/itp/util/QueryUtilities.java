@@ -21,7 +21,7 @@ public static String queryByID(String id) throws SAXException, IOException, Pars
 		Element element = null;
 		
 
-		nodelist = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + "\\wtpwebapps\\Bakthi-Herbal_Lanka\\WEB-INF\\Factory.xml"))
+		nodelist = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + "\\wtpwebapps\\Bakthi-Herbal-Lanka\\WEB-INF\\Factory.xml"))
 					.getElementsByTagName(CommonConstants.XML_TAG_NAME);
 
 

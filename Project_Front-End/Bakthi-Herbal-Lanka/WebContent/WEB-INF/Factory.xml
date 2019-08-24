@@ -2,14 +2,62 @@
 
 <Querys>
 <!-- EMPLOYEE BEGIN -->
+<query id="insert_employee">
+        <![CDATA[
+          	insert into supplier (empId, image, fname, lname, gender, email, contactNo, address, unit, designation, empType) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
 
+	<query id="remove_employee">
+         <![CDATA[        
+            delete from employee where employee.empId = ?
+        ]]>
+	</query>
 
+ 	<query id="employee_ids">
+         <![CDATA[        
+            select e.empId from employee as e
+        ]]>
+	</query>
 
-
-
-
+	<query id="employee_by_id">
+         <![CDATA[        
+            select * from employee where employee.empId = ?
+        ]]>
+	</query>
+	
+	<query id="all_employees">
+         <![CDATA[        
+            select * from employee
+        ]]>
+	</query>
 
 <!-- EMPLOYEE END -->
+
+<!-- LOGIN BEGIN -->
+
+	<query id="insert_login_creds">
+        <![CDATA[
+          	insert into login (loginId, name, designation, username, password) 
+          	values (?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<query id="login_ids">
+         <![CDATA[        
+            select l.loginId from login as l
+        ]]>
+	</query>
+	
+		<query id="remove_login">
+         <![CDATA[        
+            delete from login where login.loginId = ?
+        ]]>
+	</query>
+
+<!-- LOGIN END -->
+
 <!--SUPPLIER BEGIN -->
 
 	<!-- Select all customer orders Query -->

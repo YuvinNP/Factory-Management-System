@@ -49,4 +49,17 @@ public class CommonUtilities {
 		}
 		return id;
 	}
+	
+	public static String generateLoginID(ArrayList<String> loginList) {
+
+		String id;
+		int next = loginList.size();
+		next++;
+		id = CommonConstants.EMPLOYEE_ID_PRIFIX + next;
+		if (loginList.contains(id)) {
+			next++;
+			id = CommonConstants.EMPLOYEE_ID_PRIFIX + next;
+		}
+		return id;
+	}
 }

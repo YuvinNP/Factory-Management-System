@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@page import="com.itp.model.Employee"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itp.services.EmployeeServiceImpl"%>
+<%@page import="com.itp.services.IEmployeeServices"%>
 <html lang="en">
 
 <head>
@@ -25,6 +29,7 @@
 
 <body>
 
+<section id=nav-bar>
     <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm bg-white rounded row nav-margin">
@@ -79,7 +84,7 @@
             </div>
         </nav>
     </div>
-
+</section>
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar" class="navbar-expand-md mb-5 navbar-position" style="margin-top: -40px">
@@ -192,183 +197,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="grid">
-
-                            <td><img class="table-img" src="./images/settings.png"></td>
-                            <td>yuiyuiui</td>
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
+                    
+                    <%
+                    	IEmployeeServices iEmployeeServices = new EmployeeServiceImpl();
+                    	ArrayList<Employee> emplList = iEmployeeServices.getEmployees();
+                    	
+                    	for(Employee employee : emplList){
+                    %>
+                      <tr>
+                           
+                            <td> <img class="table-img" src="<%=employee.getImg()%>"> </td>
+                            <td> <%=employee.getEmployeeID()%> </td>
+                            <td> <%=employee.getFname()%> </td>
+                            <td> <%=employee.getLname()%> </td>
+                            <td> <%=employee.getGender()%> </td>
+                            <td> <%=employee.getEmail()%> </td>
+                            <td> <%=employee.getContactNo()%> </td>
+                            <td> <%=employee.getAddress()%> </td>
+                            <td> <%=employee.getUnit()%> </td>
+                            <td> <%=employee.getDesignation()%> </td>
+                            <td> <%=employee.getType()%> </td>
                             <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
                             <td><button class="btn btn-danger" style="margin-left: 10px;"><i
                                         class="far fa-trash-alt"></i></button></td>
 
                         </tr>
 
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        <tr class="grid">
-                            <td>yuiyuiui</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td>asdasdasd</td>
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square"></i></button></td>
-                            <td><button class="btn btn-danger" style="margin-left: 10px;"><i
-                                        class="far fa-trash-alt"></i></button></td>
-                        </tr>
-
-                        
-
-
+					<% } %>
                     </tbody>
-
                 </table>
 
             </div>
@@ -397,17 +253,18 @@
                                         <input type="email" class="form-control" id="inputEmail4"
                                             placeholder="Employee ID" disabled="disabled">
                                     </div>
-                                    <div class="custom-file col-md-4 ml-auto">
+                                    <div class="custom-file col-md-4 ml-auto" style="margin-left: 60px;">
                                        
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose Image...</label>
-                                            <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" required>
-                                            
-                                          </div>
+                                       
+                                        <img id="blah" src="./images/avatar.png" alt="your image"
+                                        style="width: 100px;height: 100px;border-radius: 70px;">
+                                        <input type="file" id="imgInp" name="image">
+                                  
 
                                     
                                 </div>
                             </div>
-                            <div class="form pl-3 pr-3">
+                            <div class="form pl-3 pr-3" style="margin-top: 60px;">
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail4">First Name</label>
