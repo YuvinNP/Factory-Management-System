@@ -1,3 +1,8 @@
+
+<%@page import="com.itp.model.Supplier"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itp.services.SupplierServiceImpl"%>
+<%@page import="com.itp.services.ISupplierServices"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -190,151 +195,39 @@
                         <th scope="col">delete</th>
                     </tr>
                 </thead>
-
-
+		
                 <tbody>
+                
+                 <%
+            		ISupplierServices iSupplierServices = new SupplierServiceImpl();
+					ArrayList<Supplier> arrayList = iSupplierServices.getSuppliers();
+			
+					for(Supplier supplier : arrayList){
+				%>
+			
                     <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-
+                    	<td> <%=supplier.getSupplierID() %></td>
+                        <td> <%=supplier.getSupplierName() %> </td>
+                        <td> <%=supplier.getContactNo() %> </td>
+                        <td> <%=supplier.getEmail() %> </td>
+                        <td> <%=supplier.getAddress() %> </td>
+						<td> <%=supplier.getProductId() %> </td>
+						<td> <%=supplier.getProductName() %> </td>
+						
+						<form action="DeleteSupplierServlet" method="POST">
+							<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
+	                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+						</form>
+						
+							<form action="DeleteSupplierServlet" method="POST">
+						
+							<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
+	                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
+						</form>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>0717567589</td>
-                        <td>@mdo</td>
-                        <td>malabe</td>
-                        <td>p100</td>
-                        <td>p100</td>
-                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-                    </tr>
+                   <% 
+						}
+                   %>
                 </tbody>
 
                 <tfoot>
@@ -360,24 +253,26 @@
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content" style=" background-color: #fefefe;">
+                  
                   <div class="modal-header">
                     <h4 class="modal-title">Add Supplier</h4> 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                  
                   <div class="modal-body">
 
-                    <form id = "log" class="needs-validation" novalidate>
+                    <form action="AddSupplierServlet" method="POST" id = "supplierRegistration" >
                     
                      <div class="form-group">
                        <label>Supplier ID</label>
-                       <input type="text" class="form-control" id="supID" placeholder="Supplier ID">
+                       <input type="text" class="form-control" name="supplierID" id="supID" placeholder="Supplier ID">
                     </div>
                     
                     <div class="form-group">
                         <label for="validation1">Supplier Name</label>
-                        <input type="text" class="form-control" id="validation1" placeholder="Supplier Name" required>
+                        <input type="text" class="form-control" name="supName" id="validation1" placeholder="Supplier Name" required>
                         <div class="invalid-feedback">
                             Please provide a supplier name.
                         </div>
@@ -385,7 +280,7 @@
 
                     <div class="form-group">
                         <label for="validation2">Product ID</label>
-                        <input type="text" class="form-control" id="validation2" placeholder="Product Name" required>
+                        <input type="text" class="form-control" name="proId" id="validation2" placeholder="Product Name" required>
                         <div class="invalid-feedback">
                             Please provide a product ID.
                         </div>
@@ -393,7 +288,7 @@
 
                     <div class="form-group">
                         <label for="validation3">Product Name</label>
-                        <input type="text" class="form-control" id="validation3" placeholder="Product Name" required>
+                        <input type="text" class="form-control" name="proName" id="validation3" placeholder="Product Name" required>
                         <div class="invalid-feedback">
                             Please provide a product name.
                         </div>
@@ -401,7 +296,7 @@
 
                     <div class="form-group">
                         <label for="validation4">Contact Number</label>
-                        <input type="number" class="form-control" id="validation4" placeholder="Contact Number" required>
+                        <input type="number" class="form-control" name="telNo" id="validation4" placeholder="Contact Number" required>
                             <div class="invalid-feedback">
                                 Please provide a contact number.
                             </div>
@@ -410,25 +305,29 @@
 
                     <div class="form-group">
                         <label for="validation5">Email</label>
-                        <input type="text" class="form-control" id="validation5" placeholder="Email" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid city.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="validation6">Address</label>
-                        <input type="text" class="form-control" id="validation6" placeholder="Address" required>
+                        <input type="text" class="form-control" name="email" id="validation5" placeholder="Email" required>
                         <div class="invalid-feedback">
                             Please provide a valid email.
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="validation6">Address</label>
+                        <input type="text" class="form-control" name="address" id="validation6" placeholder="Address" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid Address.
+                        </div>
+                    </div>
 
-                </form>
+             
 
-                  </div>
+                  
                   <div class="modal-footer">
-                    <button class="btn btn-primary btn-block" type="submit"> Submit</button>
+                  
+                    <input class="btn btn-primary" type="submit" value="Confirm">
+                  
                   </div>
+                     </form>
+                     </div>
                 </div>
               </div>
             </div>
