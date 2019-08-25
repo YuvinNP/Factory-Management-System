@@ -159,7 +159,6 @@
                         <th scope="col">Contact No</th>
                         <th scope="col">Email</th>
                         <th scope="col">Address</th>
-                        <th scope="col">No.of Units</th>
                         <th scope="col">edit</th>
                         <th scope="col">delete</th>
                     </tr>
@@ -173,10 +172,11 @@
                         <td>Mr.Shantha</td>
                         <td>0112224448</td>
                         <td>shanthashp@gmail.com</td>
-                        <td>Arangala,Malabe</td>
-                        <td>250</td>                                          
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <td>Arangala,Malabe</td>                                          
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
 
                     <tr>
@@ -185,10 +185,11 @@
                         <td>Mr.Priyantha</td>
                         <td>0710720739</td>
                         <td>priyanthashp@gmail.com</td>
-                        <td>20/1,main Street,Malabe</td>
-                        <td>310</td> 
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <td>20/1,main Street,Malabe</td> 
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
 
                     <tr>
@@ -198,9 +199,10 @@
                         <td>038222222</td>
                         <td>samanthashp@gmail.com</td>
                         <td>Kahantota,Malabe</td>
-                        <td>400</td> 
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
                 </tbody>
             </table>
@@ -251,7 +253,7 @@
                     
                     <div class="form-group">
                         <label for="validation4">Contact No</label>
-                        <input type="number" class="form-control" id="validation4" placeholder="Please enter a Contact No" required>
+                        <input type="text" class="form-control" id="validation4" placeholder="Please enter a Contact No" required>
                         <div class="invalid-feedback">
                             Please provide Contact Number.
                         </div>
@@ -273,14 +275,6 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="validation7">No.of Units</label>
-                        <input type="number" class="form-control" id="validation7" placeholder="Please enter No.of Units" required>
-                        <div class="invalid-feedback">
-                            Please provide Number of units.
-                        </div>
-                    </div>
-
                 </form>
 
                   </div>

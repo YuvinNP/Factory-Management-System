@@ -174,8 +174,10 @@
                         <td>100</td>
                         <td>2019/08/15</td>
                         <!--td><a href="#"><i class='material-icons' style="color:red"></i></a></td-->
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
 
                     <tr>
@@ -183,8 +185,10 @@
                         <td>bp002</td>
                         <td>200</td>
                         <td>2019/08/14</td>
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
 
                     <tr>
@@ -192,8 +196,10 @@
                         <td>bp003</td>
                         <td>300</td>
                         <td>2019/08/13</td>
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
                 </tbody>
             </table>

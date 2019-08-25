@@ -82,7 +82,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar" class="navbar-expand-md mb-5" style="margin-top: -40px">
             <div class="sidebar-header  row" style="width: 265px;">
-                <!-- <h3>Bootstrap Sidebar</h3> -->
+                <!-- <h3>Bootstrap SideBar</h3> -->
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="65">
                 <h5 class="mt-4 ml-3">Name</h5>
             </div>
@@ -164,12 +164,13 @@
           <table id="dtBasicExample" class="table table-striped table-bordered table-sm">
                 <thead>
                     <tr class="p-3 mb-2 bg-success text-white">
+                        <th scope="col">Distributed Code</th>
                         <th scope="col">Item Code</th>
-                        <th scope="col">Item Name</th>
-                        <th scope="col">No.of Items</th>
                         <th scope="col">Shop Id</th>
-                        <th scope="col">Paid Amount</th>
-                        <th scope="col">No.of Items Returned</th>
+                        <th scope="col">Distributed Count</th>
+                        <th scope="col">Return Count</th>
+                        <th scope="col">Income</th>
+                        <th scope="col">Date</th>
                         <th scope="col">edit</th>
                         <th scope="col">delete</th>
                     </tr>
@@ -178,37 +179,46 @@
 
                 <tbody>
                     <tr>
-                        <td>bp001</td>
-                        <td>Fragrance 1</td>
-                        <td>125</td>
-                        <td>SI001</td>
-                        <td>780</td>
-                        <td>15</td>                                     
+                        <td>DC001</td>
+                        <td>IC001</td>
+                        <td>S001</td>
+                        <td>40</td>
+                        <td>2</td>
+                        <td>800</td>
+                        <td>12/12/2019</td>                                    
                         <!--td><a href="#"><i class='material-icons' style="color:red"></i></a></td-->
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
 
                     <tr>
-                        <td>bp002</td>
-                        <td>Fragrance 2</td>
-                        <td>150</td>
-                        <td>SI002</td>
-                        <td>850</td>
-                        <td>8</td>    
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <td>DC001</td>
+                        <td>IC001</td>
+                        <td>S001</td>
+                        <td>40</td>
+                        <td>2</td>
+                        <td>800</td>
+                        <td>12/12/2019</td>   
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
 
                     <tr>
-                        <td>bp003</td>
-                        <td>Fragrance 3</td>
-                        <td>112</td>
-                        <td>SI003</td>
-                        <td>660</td>
-                        <td>25</td>    
-                        <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
-                        <td><i class='fas fa-times' style="color:red;"></i></td>
+                        <td>DC001</td>
+                        <td>IC001</td>
+                        <td>S001</td>
+                        <td>40</td>
+                        <td>2</td>
+                        <td>800</td>
+                        <td>12/12/2019</td>    
+                        <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
+                        <td><i class='fas fa-times' style="color:red;"></i></td> -->
+                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
                 </tbody>
             </table>
@@ -223,7 +233,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content" style=" background-color: #fefefe;">
                   <div class="modal-header">
-                    <h4 class="modal-title">Add Stock</h4>
+                    <h4 class="modal-title">Add Item</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -233,51 +243,58 @@
                     <form id = "log" class="needs-validation" novalidate>
 
                     <div class="form-group">
+                        <label for="validation1">Distributed Code</label>
+                        <input type="text" class="form-control" id="validation1" placeholder="Please enter a Distribution Code" required>
+                        <div class="invalid-feedback">
+                            Please provide a Distributed Code.
+                        </div>
+                    </div>
 
-                        <label for="validation1">Item Code</label>
-                        <input type="text" class="form-control" id="validation1" placeholder="Please enter a Item Code" required>
+                    <div class="form-group">
+                        <label for="validation2">Item Code</label>
+                        <input type="text" class="form-control" id="validation2" placeholder="Please enter a Item Code" required>
                         <div class="invalid-feedback">
                             Please provide a Item Code.
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="validation2">Item Name</label>
-                        <input type="text" class="form-control" id="validation2" placeholder="Please enter a Item Name" required>
+                        <label for="validation3">Shop Id</label>
+                        <input type="text" class="form-control" id="validation3" placeholder="Please enter Shop Id" required>
                         <div class="invalid-feedback">
-                            Please provide a Item Name.
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="validation3">No.of Items</label>
-                        <input type="number" class="form-control" id="validation3" placeholder="Please enter No.of Items" required>
-                        <div class="invalid-feedback">
-                            Please provide No.of Items.
+                            Please provide a Shop Id.
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="validation4">Shop ID</label>
-                        <input type="text" class="form-control" id="validation4" placeholder="Please enter a Shop ID" required>
+                        <label for="validation4">Distributed Count</label>
+                        <input type="number" class="form-control" id="validation4" placeholder="Please enter a Distributed Count" required>
                         <div class="invalid-feedback">
-                            Please provide Shop ID.
+                            Please provide a Distributed Count.
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="validation5">Amount Paid</label>
-                        <input type="number" class="form-control" id="validation5" placeholder="Please enter Paid Amount" required>
+                        <label for="validation5">Return Count</label>
+                        <input type="number" class="form-control" id="validation5" placeholder="Please enter a Return Count" required>
                         <div class="invalid-feedback">
-                            Please provide Amount Paid.
+                            Please provide a Return Count.
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="validation6">No.if Items Returned</label>
-                        <input type="text" class="form-control" id="validation6" placeholder="Please enter No.of Items Returned" required>
+                        <label for="validation6">Income</label>
+                        <input type="number" class="form-control" id="validation6" placeholder="Please enter the Income" required>
                         <div class="invalid-feedback">
-                            Please provide No.of Items returned.
+                            Please provide the Income.
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="validation6">Date</label>
+                        <input type="date" class="form-control" id="validation6" placeholder="Please enter a Date" required>
+                        <div class="invalid-feedback">
+                            Please provide a Date.
                         </div>
                     </div>
 

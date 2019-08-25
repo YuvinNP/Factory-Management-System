@@ -161,10 +161,10 @@
                     <tr class="p-3 mb-2 bg-success text-white">
                         <th scope="col">Vehicle Number</th>
                         <th scope="col">Vehicle Name</th>
-                        <th scope="col">Area of Delivering</th>
-                        <th scope="col">Driver Name</th>
-                        <th scope="col">Paid Amount</th>
-                        <th scope="col">No.of Items Returned</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Driver Code</th>
+                        <th scope="col">Assistant Code</th>
+                        <th scope="col">Date</th>
                         <th scope="col">edit</th>
                         <th scope="col">delete</th>
                     </tr>
@@ -173,12 +173,12 @@
 
                 <tbody>
                     <tr>
-                        <td>bp001</td>
-                        <td>Fragrance 1</td>
-                        <td>125</td>
-                        <td>SI001</td>
-                        <td>780</td>
-                        <td>15</td>                                     
+                        <td>DAC-1234</td>
+                        <td>TATA - Lorry</td>
+                        <td>Malabe</td>
+                        <td>D1234</td>
+                        <td>A1234</td>
+                        <td>22/05/2019</td>                                     
                         <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td> -->
                         <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
@@ -186,12 +186,12 @@
                     </tr>
 
                     <tr>
-                        <td>bp002</td>
-                        <td>Fragrance 2</td>
-                        <td>150</td>
-                        <td>SI002</td>
-                        <td>850</td>
-                        <td>8</td>    
+                        <td>DAC-1234</td>
+                        <td>TATA - Lorry</td>
+                        <td>Malabe</td>
+                        <td>D1234</td>
+                        <td>A1234</td>
+                        <td>22/05/2019</td>     
                         <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td> -->
                         <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
@@ -199,12 +199,12 @@
                     </tr>
 
                     <tr>
-                        <td>bp003</td>
-                        <td>Fragrance 3</td>
-                        <td>112</td>
-                        <td>SI003</td>
-                        <td>660</td>
-                        <td>25</td>    
+                        <td>DAC-1234</td>
+                        <td>TATA - Lorry</td>
+                        <td>Malabe</td>
+                        <td>D1234</td>
+                        <td>A1234</td>
+                        <td>22/05/2019</td>     
                         <!-- <td><i class="material-icons" style="color:red;">&#xe150;</i></td>
                         <td><i class='fas fa-times' style="color:red;"></i></td> -->
                         <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
@@ -250,29 +250,37 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="validation2">Area of Driving</label>
-                        <input type="text" class="form-control" id="validation3" placeholder="Please enter a Driving Area" required>
+                        <label for="validation2">Area</label>
+                        <input type="text" class="form-control" id="validation3" placeholder="Please enter a Delivering Area" required>
                         <div class="invalid-feedback">
-                            Please provide the Driving area.
+                            Please provide the Delivering area.
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="validation3">Paid Amount</label>
-                        <input type="text" class="form-control" id="validation4" placeholder="Please enter a Paid Amount" required>
+                        <label for="validation3">Driver Id</label>
+                        <input type="text" class="form-control" id="validation4" placeholder="Please enter a Driver Id" required>
                             <div class="invalid-feedback">
-                                Please provide Amount Paid.
+                                Please provide a Driver Id.
                             </div>
-
                     </div>
 
                     <div class="form-group">
-                        <label for="validation4">No.of Items Returned</label>
-                        <input type="number" class="form-control" id="validation5" placeholder="Please enter an Item Return" required>
+                        <label for="validation4">Assistant Id</label>
+                        <input type="text" class="form-control" id="validation5" placeholder="Please enter an Assistant" required>
                         <div class="invalid-feedback">
-                            Please provide No.of Items return.
+                            Please provide an Assistant Id.
                         </div>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="validation4">Date</label>
+                        <input type="date" class="form-control" id="validation5" placeholder="Please enter a Date" required>
+                        <div class="invalid-feedback">
+                            Please provide a Date.
+                        </div>
+                    </div>
+                    
 
                 </form>
 
