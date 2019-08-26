@@ -4,7 +4,7 @@
 <!-- EMPLOYEE BEGIN -->
 <query id="insert_employee">
         <![CDATA[
-          	insert into supplier (empId, image, fname, lname, gender, email, contactNo, address, unit, designation, empType) 
+          	insert into employee (empId, image, fname, lname, gender, email, contactNo, address, unit, designation, empType) 
           	values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ]]>
 	</query>
@@ -39,8 +39,8 @@
 
 	<query id="insert_login_creds">
         <![CDATA[
-          	insert into login (loginId, name, designation, username, password) 
-          	values (?, ?, ?, ?, ?)
+          	insert into login (loginId, image, fname, lname, designation, username, password) 
+          	values (?, ?, ?, ?, ?, ?, ?)
         ]]>
 	</query>
 
@@ -56,6 +56,11 @@
         ]]>
 	</query>
 
+	<query id="all_logins">
+         <![CDATA[        
+            select * from login
+        ]]>
+	</query>
 <!-- LOGIN END -->
 
 <!--SUPPLIER BEGIN -->
@@ -107,5 +112,15 @@
 	</query>
 <!-- SUPPLIER END -->
 
+
+<!-- LEAVE BEGIN -->
+
+<query id="insert_leave">
+        <![CDATA[
+          	insert into leaves (leaveId, empId, empName, date, description) 
+          	values (?, ?, ?, ?, ?)
+        ]]>
+	</query>
+<!-- LEAVE END -->
 </Querys>
 

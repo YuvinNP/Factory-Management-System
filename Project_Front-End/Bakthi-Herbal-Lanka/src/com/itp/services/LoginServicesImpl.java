@@ -55,10 +55,12 @@ public class LoginServicesImpl implements ILoginServices {
 			// get login ids
 			login.setLoginID(loginID);
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, login.getLoginID());
-			preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, login.getName());
-			preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, login.getDesignation());
-			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, login.getUsername());
-			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, login.getPassword());
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, login.getImg());
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, login.getFname());
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, login.getLname());
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, login.getDesignation());
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, login.getUsername());
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, login.getPassword());
 			preparedstatement.execute();
 			connection.commit();
 
@@ -92,8 +94,8 @@ public class LoginServicesImpl implements ILoginServices {
 	
 	@Override
 	public ArrayList<Login> getLogin() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return actionOnLogin(null);
 	}
 
 
@@ -172,4 +174,59 @@ public class LoginServicesImpl implements ILoginServices {
 		return idList;
 	}
 
+	private ArrayList<Login> actionOnLogin(String loginID){
+		
+		ArrayList<Login> loginList = new ArrayList<Login>();
+	
+		try {
+			connection = DBConnection.getDBConnection();
+			
+			if(loginID != null && !loginID.isEmpty()) {
+				
+				preparedstatement = connection.prepareStatement(QueryUtilities.queryByID(CommonConstants.QUERY_ID_GET_LOGIN_ID));
+				preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, loginID);
+				
+			}
+			else {
+				
+				preparedstatement = connection.prepareStatement(QueryUtilities.queryByID(CommonConstants.QUERY_ID_ALL_LOGINS));
+			}
+			
+			ResultSet resultSet = preparedstatement.executeQuery();
+			
+			while(resultSet.next()) {
+				Login login = new Login();
+				login.setLoginID(resultSet.getString(CommonConstants.COLUMN_INDEX_ONE));
+				login.setImg(resultSet.getString(CommonConstants.COLUMN_INDEX_TWO));
+				login.setFname(resultSet.getString(CommonConstants.COLUMN_INDEX_THREE));
+				login.setLname(resultSet.getString(CommonConstants.COLUMN_INDEX_FOUR));
+				login.setDesignation(resultSet.getString(CommonConstants.COLUMN_INDEX_FIVE));
+				login.setUsername(resultSet.getString(CommonConstants.COLUMN_INDEX_SIX));
+				login.setPassword(resultSet.getString(CommonConstants.COLUMN_INDEX_SEVEN));
+				loginList.add(login);
+			}
+			
+		}catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
+			log.log(Level.SEVERE, e.getMessage());
+			System.out.println("Get Employee Exception");
+		} finally {
+			/*
+			 * Close prepared statement and database connectivity at the end of
+			 * transaction
+			 */
+			try {
+				if (preparedstatement != null) {
+					preparedstatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				log.log(Level.SEVERE, e.getMessage());
+			}
+		}
+		
+		return loginList;
+	
+	}
 }

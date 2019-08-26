@@ -8,12 +8,14 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.omg.CORBA.Request;
@@ -28,6 +30,7 @@ import com.itp.services.LoginServicesImpl;
 /**
  * Servlet implementation class AddEmployeeServlet
  */
+@MultipartConfig
 @WebServlet("/AddEmployeeServlet")
 public class AddEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -52,59 +55,123 @@ public class AddEmployeeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-		response.setContentType("text/html");
+
+		ServletFileUpload sf = new ServletFileUpload(new DiskFileItemFactory());
+		List<FileItem> formItem = null;
 		
-		PrintWriter out = response.getWriter();
-		Employee employee = new Employee();
-		Login login = new Login();
+		Employee e = new Employee();
+		Login l = new Login();
+		
+//			List<FileItem> multiFiles = sf.parseRequest(request);
+		
+//		try {
+////			
+//			
+//			for(FileItem f : multiFiles) {	
+//			    String name = "D:\\Github\\ITP_Project\\Factory-Management-System\\Project_Front-End\\Bakthi-Herbal-Lanka\\WebContent\\WEB-INF\\files" + "\\" + f.getName();
+//				f.write(new File(name));
+////				employee.setImg(name);
+////				login.setImg(name);
+//				System.out.println(name);
+//				break;
+//			}
+//			
+//
+//			
+//		} catch (Exception e) {		
+//			e.printStackTrace();
+//		}
+		try {
+			formItem = sf.parseRequest(request);
+			
+		} catch (FileUploadException exception) {
+			exception.printStackTrace();
+		}
+		
 	
 		
-		try {
+		for(FileItem item : formItem) {
 			
-			ServletFileUpload sf = new ServletFileUpload(new DiskFileItemFactory());
-			List<FileItem> multiFiles = sf.parseRequest(request);
-			
-			for(FileItem f : multiFiles) {	
-			    String name = "D:\\Github\\ITP_Project\\Factory-Management-System\\Project_Front-End\\Bakthi-Herbal-Lanka\\WebContent\\WEB-INF\\files" + "\\" + f.getName();
-				f.write(new File(name));
-				employee.setImg(name);
-				System.out.println(name);
-				break;
+			String textInput = item.getFieldName();
+			System.out.println(textInput);
+			if(textInput.equals("empID")) {
+				System.out.println(item.getString());
+				e.setEmployeeID(item.getString());
+				
 			}
+			else if(textInput.equals("image")) {
+				
+
+				try {
+					System.out.println("asasd");
+						
+					    String name = "D:\\Github\\ITP_Project\\Factory-Management-System\\Project_Front-End\\Bakthi-Herbal-Lanka\\WebContent\\images\\imagefiles" + "\\" + item.getName();
+						item.write(new File(name));
+						e.setImg(item.getName());
+						l.setImg(item.getName());
+						System.out.println(item.getName());
+						
+					}
 			
 
-			
-		} catch (Exception e) {		
-			e.printStackTrace();
+					
+				 catch (Exception exception) {		
+					exception.printStackTrace();
+				}
+			}
+			else if(textInput.equals("fname")) {
+				e.setFname(item.getString());
+				l.setFname(item.getString());
+			}
+			else if(textInput.equals("lname")) {
+				e.setLname(item.getString());
+				l.setLname(item.getString());
+			}
+			else if(textInput.equals("gender")) {
+				e.setGender(item.getString());
+			}
+			else if(textInput.equals("email")) {
+				e.setEmail(item.getString());
+			}
+			else if(textInput.equals("contact")) {
+				e.setContactNo(Integer.parseInt(item.getString()));
+			}
+			else if(textInput.equals("address")) {
+				e.setAddress(item.getString());
+			}
+			else if(textInput.equals("unit")) {
+				e.setUnit(item.getString());
+			}
+			else if(textInput.equals("designation")) {
+				e.setDesignation(item.getString());
+				l.setDesignation(item.getString());
+			}
+			else if(textInput.equals("username")){
+				l.setUsername(item.getString());
+			}
+			else if(textInput.equals("createPwrd")) {
+				l.setPassword(item.getString());
+			}
+			else if(textInput.equals("confirmPwrd")) {
+				
+			}
 		}
-			
-		employee.setFname(request.getParameter("fname"));
-		employee.setLname(request.getParameter("lname"));
-		employee.setAddress(request.getParameter("address"));
-		employee.setEmail(request.getParameter("email"));
-		employee.setContactNo(Integer.parseInt(request.getParameter("contact")));
-		employee.setGender(request.getParameter("gender"));
-		employee.setUnit(request.getParameter("unit"));
-		employee.setDesignation(request.getParameter("designation"));
-		employee.setType(request.getParameter("empType"));
+	
 		
+	
 		IEmployeeServices iEmployeeServices = new EmployeeServiceImpl();
-		iEmployeeServices.addEmployee(employee);
-		
-		login.setName(request.getParameter("fname") + " " + request.getParameter("lname"));
-		login.setDesignation(request.getParameter("designation"));
-		login.setUsername(request.getParameter("username"));
-		login.setPassword(request.getParameter("createPwrd"));
+		iEmployeeServices.addEmployee(e);
+
 	
 		ILoginServices iLoginServices = new LoginServicesImpl();
-		iLoginServices.addLogin(login);
+		iLoginServices.addLogin(l);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./EmployeeList.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/EmployeeList.jsp");
 		dispatcher.forward(request, response);
 		
-	
+		
+		
+		
 	}
 
 }

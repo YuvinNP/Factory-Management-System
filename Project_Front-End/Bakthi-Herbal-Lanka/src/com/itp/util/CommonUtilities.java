@@ -62,4 +62,17 @@ public class CommonUtilities {
 		}
 		return id;
 	}
+	
+	public static String generateLeaveID(ArrayList<String> leaveList) {
+
+		String id;
+		int next = leaveList.size();
+		next++;
+		id = CommonConstants.LOGIN_ID_PRIFIX + next;
+		if (leaveList.contains(id)) {
+			next++;
+			id = CommonConstants.LOGIN_ID_PRIFIX + next;
+		}
+		return id;
+	}
 }
