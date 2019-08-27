@@ -17,16 +17,16 @@ public interface ISupplierServices {
 	public static final Logger log = Logger.getLogger(ISupplierServices.class.getName());
 
 	/**
-	 * Add employees for employee table
-	 * @param employee
+	 * Add suppliers for supplier table
+	 * @param supplier
 	 */
 	public void addSupplier(Supplier supplier);
 
 	/**
-	 * Get a particular Employee
+	 * Get a particular Supplier
 	 * 
-	 * @param empoyeeID
-	 * @return Employee
+	 * @param supplierID
+	 * @return Supplier
 	 */
 	public Supplier getSupplierByID(String supplierID);
 	
@@ -52,5 +52,7 @@ public interface ISupplierServices {
 	 * @param employeeID
 	 */
 	public void removeSupplier(String supplierID);
+	
+	 public ArrayList<String> getSupplierIDs();
 	
 }

@@ -1,4 +1,5 @@
 
+<%@page import="com.itp.util.CommonUtilities"%>
 <%@page import="com.itp.model.Supplier"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.itp.services.SupplierServiceImpl"%>
@@ -205,32 +206,28 @@
 					for(Supplier supplier : arrayList){
 				%>
 			
-                    <tr>
-                    	<td> <%=supplier.getSupplierID() %></td>
-                        <td> <%=supplier.getSupplierName() %> </td>
-                        <td> <%=supplier.getContactNo() %> </td>
-                        <td> <%=supplier.getEmail() %> </td>
-                        <td> <%=supplier.getAddress() %> </td>
-						<td> <%=supplier.getProductId() %> </td>
-						<td> <%=supplier.getProductName() %> </td>
-						
-						<form action="DeleteSupplierServlet" method="POST">
+                    <tr id = " <%=supplier.getSupplierID() %>">
+                    	<td data-target="idS"> <%=supplier.getSupplierID() %></td>
+                        <td data-target="nameS"> <%=supplier.getSupplierName() %> </td>
+                        <td data-target="telS"> <%=supplier.getContactNo() %> </td>
+                        <td data-target="emailS"> <%=supplier.getEmail() %> </td>
+                        <td data-target="addressS"> <%=supplier.getAddress() %> </td>
+						<td data-target="pidS"> <%=supplier.getProductId() %> </td>
+						<td data-target="pnameS"> <%=supplier.getProductName() %> </td>
+		
 							<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
-	                        <td><button class="btn btn-success"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-						</form>
-						
+	                        <td><button class="btn btn-success" data-toggle="modal" data-target="#updateModal" data-role="update" data-id="<%=supplier.getSupplierID()%>"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
+							
 							<form action="DeleteSupplierServlet" method="POST">
 						
 							<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
 	                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
 						</form>
                     </tr>
-                   <% 
-						}
-                   %>
+                     <% } %> 
                 </tbody>
 
-                <tfoot>
+                 <tfoot>
                   <tr class="p-3 mb-2 bg-success text-white">
                       <th scope="col">Supplier ID</th>
                       <th scope="col">Supplier Name</th>
@@ -242,12 +239,14 @@
                       <th scope="col">edit</th>
                       <th scope="col">delete</th>
                   </tr>
-                </tfoot>
+                </tfoot> 
+                
             </table>
             </div>
 
 </div>
 </div>
+               
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
@@ -266,8 +265,14 @@
                     <form action="AddSupplierServlet" method="POST" id = "supplierRegistration" >
                     
                      <div class="form-group">
+                     
+                      <!--   To get auto increment supplier ID to the supplier registration form -->
+                     <%
+                     ISupplierServices iSupServices = new SupplierServiceImpl();
+                     String sID = CommonUtilities.generateSupplierID(iSupServices.getSupplierIDs());
+                     %>
                        <label>Supplier ID</label>
-                       <input type="text" class="form-control" name="supplierID" id="supID" placeholder="Supplier ID">
+                       <input type="text" value="<%=sID %>" class="form-control" name="supplierID">
                     </div>
                     
                     <div class="form-group">
@@ -331,8 +336,93 @@
                 </div>
               </div>
             </div>
+            <!-- Modal End -->
+            
+   	          <!-- Update Modal -->
+            <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalCenterTitle"  aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" style=" background-color: #fefefe;">
+                  
+                  <div class="modal-header">
+                    <h4 class="modal-title">Update Supplier</h4> 
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  
+                  <div class="modal-body">
 
+                    <form action="UpdateSupplierServlet" method="POST" id = "supplierUpadte" >
+                    
+                     <div class="form-group">
+                       <label>Supplier ID</label>
+                       <input type="text" class="form-control" name="supplierID" id="sID" placeholder="Supplier ID">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="validation1">Supplier Name</label>
+                        <input type="text" class="form-control" name="supName" id="sName" placeholder="Supplier Name" required>
+                        <div class="invalid-feedback">
+                            Please provide a supplier name.
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="validation2">Product ID</label>
+                        <input type="text" class="form-control" name="proId" id="pId" placeholder="Product Name" required>
+                        <div class="invalid-feedback">
+                            Please provide a product ID.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="validation3">Product Name</label>
+                        <input type="text" class="form-control" name="proName" id="pName" placeholder="Product Name" required>
+                        <div class="invalid-feedback">
+                            Please provide a product name.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="validation4">Contact Number</label>
+                        <input type="number" class="form-control" name="telNo" id="sTelNo" placeholder="Contact Number" required>
+                            <div class="invalid-feedback">
+                                Please provide a contact number.
+                            </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="validation5">Email</label>
+                        <input type="text" class="form-control" name="email" id="sEmail" placeholder="Email" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid email.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="validation6">Address</label>
+                        <input type="text" class="form-control" name="address" id="sAddress" placeholder="Address" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid Address.
+                        </div>
+                    </div>   
+                    
+                    <input type="hidden" id="userId" class="form-control">          
+
+              
+                  <div class="modal-footer">
+                  
+                    <input class="btn btn-primary pull-right" type="submit" value="Confirm">
+                  
+                  	<input class="btn btn-default pull-left" type="button" value="Cancel">
+                  </div>
+                     </form>
+                     </div>
+                </div>
+              </div>
+            </div> 
+            <!-- Update Modal End -->
+          
 
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -378,7 +468,64 @@
                 })();
             </script>
 
+<!-- Script for update modal -->
 
+<script>
+
+$(document).ready(function(){
+	
+	$(document).on('click', 'a[data-role=update]', function (){
+	
+		var id = $(this).data('id');
+		var supName = $('#' + id).children('td[data-target=nameS]').text();
+		var proId = $('#' + id).children('td[data-target=pidS]').text();
+		var proName = $('#' + id).children('td[data-target=pnameS]').text();
+		var telNo = $('#' + id).children('td[data-target=telS]').text();
+		var email = $('#' + id).children('td[data-target=emailS]').text();
+		var address = $('#' + id).children('td[data-target=addressS]').text();
+	
+		
+		$('#sName').val(supName);
+		$('#sTelNo').val(telNo);
+		$('#sEmail').val(email);
+		$('#sAddress').val(address);
+		$('#pId').val(proId);
+		$('#pName').val(proName);
+		$('#userId').val(id);
+		$('#updateModal').modal('toggle');
+		
+	})
+});
+
+$('#save').click(function(){
+	
+	 	 var id  = $('#userId').val(); 
+	   	 var id =  $('#id').val();
+	     var name =  $('#sName').val();
+	     var tNo = $('sTelNo').val();
+	     var supEmail = $('sEmail').val();
+	     var supAddress = $('aAddress').val();
+	     var proId = $('#pId').val();
+	     var proName = $('#pName').val();
+	   
+	    $.ajax({
+	        url      : 'UpdateSupplierServlet',
+	        method   : 'post', 
+	        data     : {supplierid : id, supName : name, telNo : tNo, email : supEmail, address : supAddress, proId : proId, proName : proName},
+	        success  : function(response){
+	                     
+	                       $('#'+id).children('td[data-target=idK]').text(id);
+	                       $('#'+id).children('td[data-target=nameK]').text(name);
+	                       $('#'+id).children('td[data-target=nicK]').text(nic);
+	                       $('#'+id).children('td[data-target=idK]').text(id);
+	                       $('#'+id).children('td[data-target=nameK]').text(name);
+	                       $('#'+id).children('td[data-target=nicK]').text(nic);
+	                       $('#myModal').modal('toggle'); 
+	
+	                   }
+	    });
+});
+</script>
 
 
 </body>

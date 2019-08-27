@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import com.itp.model.rawMaterial;
+
 
 
 public class CommonUtilities {
@@ -23,7 +25,7 @@ public class CommonUtilities {
 		}
 	}
 	
-	
+	/* to generate supplier IDs */
 	public static String generateSupplierID(ArrayList<String> arrayList) {
 
 		String id;
@@ -33,6 +35,20 @@ public class CommonUtilities {
 		if (arrayList.contains(id)) {
 			next++;
 			id = CommonConstants.SUPPLIER_ID_PRIFIX + next;
+		}
+		return id;
+	}
+	
+	/* to generate raw material IDs */
+	public static String generateRawMaterialID(ArrayList<String> arrayList) {
+
+		String id;
+		int next = arrayList.size();
+		next++;
+		id = CommonConstants. RawMaterial_ID_PRIFIX + next;
+		if (arrayList.contains(id)) {
+			next++;
+			id = CommonConstants. RawMaterial_ID_PRIFIX + next;
 		}
 		return id;
 	}

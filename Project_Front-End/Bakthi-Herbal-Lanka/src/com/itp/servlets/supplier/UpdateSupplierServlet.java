@@ -47,7 +47,7 @@ public class UpdateSupplierServlet extends HttpServlet {
 		String supplierID = request.getParameter("supplierid");
 		
 		supplier.setSupplierID(supplierID);
-		supplier. setSupplierName(request.getParameter("supName"));
+		supplier.setSupplierName(request.getParameter("supName"));
 		supplier.setContactNo(request.getParameter("telNo"));
 		supplier.setEmail(request.getParameter("email"));
 		supplier.setAddress(request.getParameter("address"));

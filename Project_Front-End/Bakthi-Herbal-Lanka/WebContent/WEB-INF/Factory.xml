@@ -60,7 +60,7 @@
 
 <!--SUPPLIER BEGIN -->
 
-	<!-- Select all customer orders Query -->
+	<!-- Select all supplier Query -->
 	<query id="insert_supplier">
         <![CDATA[
           	insert into supplier (supID, supName, telNo, email, address, proId, proName) 
@@ -98,7 +98,7 @@
         ]]>
 	</query>
 	
-		<!-- Get employee IDs Query -->
+		<!-- Get supplier IDs Query -->
 	<query id="supplier_ids">
          <![CDATA[        
             select s.supID from supplier as s
@@ -107,5 +107,54 @@
 	</query>
 <!-- SUPPLIER END -->
 
+<!-- Raw Material BEGIN -->
+
+	<!-- Select all raw-material Query -->
+	<query id="insert_rawMaterial">
+        <![CDATA[
+          	insert into raw_material (rID, rName, supID, storeID, uPrice) 
+          	values (?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular raw-material by id Query -->
+	<query id="rawMaterial_by_id">
+         <![CDATA[        
+            select * from raw_material where raw_material.rID = ?
+        ]]>
+	</query>
+
+	<!-- Select all raw materials -->
+	<query id="all_rawMaterials">
+         <![CDATA[        
+            select * from raw_material
+        ]]>
+	</query>
+
+	<!-- Delete a particular raw materials by id Query -->
+	<query id="remove_rawMaterial">
+         <![CDATA[        
+            delete from raw_material where raw_material.rID = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular raw material by id Query -->
+	<query id="update_rawMaterial">
+         <![CDATA[        
+            update raw_material as rm 
+            set rm.rName = ?, rm.supID = ?, rm.storeID = ?, rm.uPrice = ? 
+            where rm.rID = ?
+        ]]>
+	</query>
+	
+		<!-- Get raw material IDs Query -->
+	<query id="rawMaterial_ids">
+         <![CDATA[        
+            select rm.rID from raw_material as rm
+            
+        ]]>
+	</query>
+
 </Querys>
+<!-- Raw Material END -->
 

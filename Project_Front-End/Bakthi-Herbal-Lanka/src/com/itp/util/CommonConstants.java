@@ -36,6 +36,22 @@ public class CommonConstants {
 	
 	public static final String QUERY_ID_REMOVE_SUPPLIER  = "remove_supplier";
 	
+	/* raw-material*/
+	
+	public static final String RawMaterial_ID_PRIFIX = "RM00";
+
+	public static final String QUERY_ID_GET_RawMaterial_ID = "rawMaterial_by_id";
+	
+	public static final String QUERY_ID_GET_RawMaterial_IDS = "rawMaterial_ids";
+	
+	public static final String QUERY_ID_ALL_RawMaterials = "all_rawMaterials";
+	
+	public static final String QUERY_ID_INSERT_RawMaterial = "insert_rawMaterial";
+	
+    public static final String QUERY_ID_UPDATE_RawMaterial  = "update_rawMaterial";
+	
+	public static final String QUERY_ID_REMOVE_RawMaterial  = "remove_rawMaterial";
+	
 	/* employee */
 	
 	public static final String EMPLOYEE_ID_PRIFIX = "E00";

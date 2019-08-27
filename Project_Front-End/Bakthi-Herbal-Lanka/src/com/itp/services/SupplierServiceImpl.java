@@ -82,7 +82,7 @@ public class SupplierServiceImpl implements ISupplierServices {
 		}	
 	}/* ADD SUPPLIER END*/
 	
-private ArrayList<String> getSupplierIDs(){
+public ArrayList<String> getSupplierIDs(){
 		
 		ArrayList<String> arrayList = new ArrayList<String>();
 		/*
