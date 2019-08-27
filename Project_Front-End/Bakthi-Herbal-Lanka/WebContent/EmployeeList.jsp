@@ -192,9 +192,9 @@
 						<tr>
 
 							<td data-target="img"><img class="table-img"
-								style="border-radius: 70px; margin-right: 20px; width: 55px;"
+								style="border-radius: 70px;width: 55px;"
 								src="images/imagefiles/<%=employee.getImg()%>"></td>
-							<td data-target="eid" id="getemployeeid"><%=employee.getEmployeeID()%></td>
+							<td ><%=employee.getEmployeeID() %></td>
 							<td data-target="fname"><%=employee.getFname()%></td>
 							<td data-target="lname"><%=employee.getLname()%></td>
 							<td data-target="gender"><%=employee.getGender()%></td>
@@ -205,14 +205,16 @@
 							<td data-target="desig"><%=employee.getDesignation()%></td>
 							<td data-target="type"><%=employee.getType()%></td>
 
-							<%-- <input type="hidden" id="getemployeeid" value="<%=employee.getEmployeeID()%>"> --%>
-							<td><button class="btn btn-success" data-role="update"
-									data-target="#updateModal" data-toggle="modal">Update</button></td>
-							<td><button type="button" onclick="passdataToModal()" class="btn btn-danger" data-toggle="modal"
+							<input type="hidden" id="getemployeeid">
+							<%-- <td><button class="btn btn-success" data-id="<%=employee.getEmployeeID()%>" data-role="update"
+									data-target="#updateModal" data-toggle="modal">Update</button></td> --%>
+							<!-- <td><button type="button" onclick="passdataToModal()" class="btn btn-danger" data-toggle="modal"
 										data-target="#deleteModal">
 										<i class="far fa-trash-alt"></i>
-									</button></td>
-
+									</button></td> -->
+							<td> <a data-toggle="modal" data-id="" class="updatemodal btn btn-success" href="#updateModal">Update</i></a></td>
+									
+							<td> <a data-toggle="modal" data-id="<%=employee.getEmployeeID()%>" class="deletemodal btn btn-danger" href="#deleteModal"><i class="far fa-trash-alt"></i></a></td>
 						</tr>
 						<%
 							}
@@ -256,6 +258,35 @@
 		</div>
 	</div>
 
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Update</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure to delete this record?</p>
+				</div>
+				<div class="modal-footer">
+					<div class="float-left">
+						<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+					</div>
+					<form action="DeleteEmployeeServlet" method="POST">
+					<div class="float-right">
+						<input type="hidden" id="deleteEmp" name="deleteText">
+						 <button id="deleteServlet" class="btn btn-danger" >Confirm</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true"
 		style="background-color: rgba(0, 0, 0, 0.5);">
@@ -413,6 +444,7 @@
 
 
 
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
@@ -496,61 +528,36 @@
 	</script>
 	
 	<script>
-	
-	function passdataToModal(){
-			
-			var empid = document.getElementById('getemployeeid').value;
-			
-			document.getElementById('deleteEmp').value = empid;
-	
-		}
-	
+
+		$(document).on("click", ".deletemodal", function () {
+		     var empid = $(this).data('id');
+		     $(".modal-footer #deleteEmp").val( empid );
+		     // As pointed out in comments, 
+		     // it is unnecessary to have to manually call the modal.
+		     // $('#addBookDialog').modal('show');
+		})
 	</script>
-	<!-- 	<script>
-		$(document).ready(
-				function() {
 
-					$(document).on(
-							'click',
-							'a[data-role=update]',
-							function() {
-								;
-								var id = $(this).data('id');
-								var img = $('#' + id).children(
-										'td[data-target=img]').text();
-								var fname = $('#' + id).children(
-										'td[data-target=fname]').text();
-								var lname = $('#' + id).children(
-										'td[data-target=lname]').text();
-								var gender = $('#' + id).children(
-										'td[data-target=gender]').text();
-								var email = $('#' + id).children(
-										'td[data-target=email]').text();
-								var contactNo = $('#' + id).children(
-										'td[data-target=contactNo]').text();
-								var address = $('#' + id).children(
-										'td[data-target=address]').text();
-								var unit = $('#' + id).children(
-										'td[data-target=unit]').text();
-								var desig = $('#' + id).children(
-										'td[data-target=desig]').text();
-								var type = $('#' + id).children(
-										'td[data-target=type]').text();
+	<script>
 
-								$('#imgInp').val(img);
-								$('#inputFname').val(fname);
-								$('#inputLname').val(lname);
-								$('#inputGender').val(gender);
-								$('#inputEmail').val(email);
-								$('#inputContact').val(contactNo);
-								$('#inputAddress').val(address);
-								$('#inputUnit').val(unit);
-								$('#inputDesig').val(desig);
-								$('#inputType').val(type);
+		$(document).on("click", ".deletemodal", function () {
+		     var empid = $(this).data('id');
+		     $(".modal-footer #deleteEmp").val( empid );
+		   
+		})
+	</script>
+		
+			<script>
 
-							})
-				});
-	</script> -->
+		$(document).on("click", ".updatemodal", function () {
+		     var empid = $(this).data('id');
+		     $(".modal-footer #deleteEmp").val( empid );
+		     // As pointed out in comments, 
+		     // it is unnecessary to have to manually call the modal.
+		     // $('#addBookDialog').modal('show');
+		})
+	</script>
+	
 </body>
 
 </html>

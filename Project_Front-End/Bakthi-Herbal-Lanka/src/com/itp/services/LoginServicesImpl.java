@@ -54,6 +54,7 @@ public class LoginServicesImpl implements ILoginServices {
 
 			// get login ids
 			login.setLoginID(loginID);
+			System.out.println(loginID);
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, login.getLoginID());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, login.getImg());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, login.getFname());

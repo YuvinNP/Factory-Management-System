@@ -55,10 +55,10 @@ public class CommonUtilities {
 		String id;
 		int next = loginList.size();
 		next++;
-		id = CommonConstants.EMPLOYEE_ID_PRIFIX + next;
+		id = CommonConstants.LOGIN_ID_PRIFIX + next;
 		if (loginList.contains(id)) {
 			next++;
-			id = CommonConstants.EMPLOYEE_ID_PRIFIX + next;
+			id = CommonConstants.LOGIN_ID_PRIFIX + next;
 		}
 		return id;
 	}
@@ -68,10 +68,10 @@ public class CommonUtilities {
 		String id;
 		int next = leaveList.size();
 		next++;
-		id = CommonConstants.LOGIN_ID_PRIFIX + next;
+		id = CommonConstants.LEAVE_ID_PRIFIX + next;
 		if (leaveList.contains(id)) {
 			next++;
-			id = CommonConstants.LOGIN_ID_PRIFIX + next;
+			id = CommonConstants.LEAVE_ID_PRIFIX + next;
 		}
 		return id;
 	}
