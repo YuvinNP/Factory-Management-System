@@ -22,7 +22,7 @@ public class CommonConstants {
 	
 	
 	/*supplier*/
-	public static final String SUPPLIER_ID_PRIFIX = "S00";
+	public static final String SUPPLIER_ID_PRIFIX = "S1";
 
 	public static final String QUERY_ID_GET_SUPPLIER_ID = "supplier_by_id";
 	
@@ -38,7 +38,7 @@ public class CommonConstants {
 	
 	/* raw-material*/
 	
-	public static final String RawMaterial_ID_PRIFIX = "RM00";
+	public static final String RawMaterial_ID_PRIFIX = "RM1";
 
 	public static final String QUERY_ID_GET_RawMaterial_ID = "rawMaterial_by_id";
 	
@@ -54,7 +54,7 @@ public class CommonConstants {
 	
 	/* employee */
 	
-	public static final String EMPLOYEE_ID_PRIFIX = "E00";
+	public static final String EMPLOYEE_ID_PRIFIX = "E1";
 	
 	public static final String QUERY_ID_GET_EMPLOYEE_ID = "employee_by_id";
 	
@@ -70,17 +70,31 @@ public class CommonConstants {
 	
 	
 	/* login */
-	public static final String LOGIN_ID_PRIFIX = "L00";
+	public static final String LOGIN_ID_PRIFIX = "L1";
 	
 	public static final String QUERY_ID_GET_LOGIN_ID = "login_by_id";
 	
 	public static final String QUERY_ID_GET_LOGIN_IDS = "login_ids";
 	
-	public static final String QUERY_ID_ALL_LOGINS = "all_login";
+	public static final String QUERY_ID_ALL_LOGINS = "all_logins";
 	
 	public static final String QUERY_ID_INSERT_LOGIN = "insert_login_creds";
 
 	public static final String QUERY_ID_REMOVE_LOGIN  = "remove_login";
+
+	
+	/* leave */
+	public static final String LEAVE_ID_PRIFIX = "LE1";
+	
+	public static final String QUERY_ID_GET_LEAVE_ID = "login_by_id";
+	
+	public static final String QUERY_ID_GET_LEAVE_IDS = "login_ids";
+	
+	public static final String QUERY_ID_ALL_LEAVES = "all_login";
+	
+	public static final String QUERY_ID_INSERT_LEAVE = "insert_login_creds";
+
+	public static final String QUERY_ID_REMOVE_LEAVE  = "remove_login";
 	
 	public static final int COLUMN_INDEX_ONE = 1;
 	
@@ -104,5 +118,4 @@ public class CommonConstants {
 	
 	public static final int COLUMN_INDEX_ELEVEN = 11;
 	
- 
 }

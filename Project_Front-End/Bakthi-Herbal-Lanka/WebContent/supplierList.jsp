@@ -1,4 +1,8 @@
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="com.itp.util.DBConnection"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="com.itp.util.CommonUtilities"%>
 <%@page import="com.itp.model.Supplier"%>
 <%@page import="java.util.ArrayList"%>
@@ -191,7 +195,6 @@
                         <th scope="col">Email</th>
                         <th scope="col">Address</th>
                         <th scope="col">Product ID</th>
-                        <th scope="col">Product Name</th>
                         <th scope="col">edit</th>
                         <th scope="col">delete</th>
                     </tr>
@@ -206,23 +209,30 @@
 					for(Supplier supplier : arrayList){
 				%>
 			
-                    <tr id = " <%=supplier.getSupplierID() %>">
-                    	<td data-target="idS"> <%=supplier.getSupplierID() %></td>
+                    <tr>
+                    	<td> <%=supplier.getSupplierID() %></td>
                         <td data-target="nameS"> <%=supplier.getSupplierName() %> </td>
                         <td data-target="telS"> <%=supplier.getContactNo() %> </td>
                         <td data-target="emailS"> <%=supplier.getEmail() %> </td>
                         <td data-target="addressS"> <%=supplier.getAddress() %> </td>
 						<td data-target="pidS"> <%=supplier.getProductId() %> </td>
-						<td data-target="pnameS"> <%=supplier.getProductName() %> </td>
+						
 		
-							<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
+					<%-- 		<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
 	                        <td><button class="btn btn-success" data-toggle="modal" data-target="#updateModal" data-role="update" data-id="<%=supplier.getSupplierID()%>"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
 							
 							<form action="DeleteSupplierServlet" method="POST">
 						
 							<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
 	                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-						</form>
+						</form> --%>
+						
+						<input type="hidden" id ="getsupplierid">
+						
+						<td> <a data-toggal="modal" data-id="" class="updatemodal btn btn-success" href="#updateModal"><i class="fas fa-pen-square" style="font-size:15px;"></i></a> </td>
+						
+						<td> <a data-toggle="modal" data-id="<%=supplier.getSupplierID() %>" class="deletemodal btn btn-danger" href="#deleteModal"><i class="far fa-trash-alt"></i></a></td>
+						
                     </tr>
                      <% } %> 
                 </tbody>
@@ -235,7 +245,6 @@
                       <th scope="col">Email</th>
                       <th scope="col">Address</th>
                       <th scope="col">Product ID</th>
-                      <th scope="col">Product Name</th>
                       <th scope="col">edit</th>
                       <th scope="col">delete</th>
                   </tr>
@@ -281,24 +290,26 @@
                         <div class="invalid-feedback">
                             Please provide a supplier name.
                         </div>
-                    </div>
+                    </div>       
 
-                    <div class="form-group">
-                        <label for="validation2">Product ID</label>
-                        <input type="text" class="form-control" name="proId" id="validation2" placeholder="Product Name" required>
-                        <div class="invalid-feedback">
-                            Please provide a product ID.
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="validation3">Product Name</label>
-                        <input type="text" class="form-control" name="proName" id="validation3" placeholder="Product Name" required>
-                        <div class="invalid-feedback">
-                            Please provide a product name.
-                        </div>
-                    </div>
-
+						<div class="form-group">
+						<label>Raw Material ID</label> 
+						<select id="inputProID" name="proId" class="form-control">
+						
+						<!-- to get the raw material IDs in the database to the drop down -->
+                        <%Connection connection = DBConnection.getDBConnection();
+						  Statement statement = connection.createStatement();
+						  ResultSet resultSet = statement.executeQuery("SELECT rID FROM raw_material");	  
+							%>
+                            <option selected="" value="Default">Choose...</option>
+                            <%while(resultSet.next()){ %>
+                            <option><%=resultSet.getString(1) %></option>
+                          	<%} %>
+                            
+						</select>
+					</div>
+					
+					
                     <div class="form-group">
                         <label for="validation4">Contact Number</label>
                         <input type="number" class="form-control" name="telNo" id="validation4" placeholder="Contact Number" required>
@@ -375,13 +386,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="validation3">Product Name</label>
-                        <input type="text" class="form-control" name="proName" id="pName" placeholder="Product Name" required>
-                        <div class="invalid-feedback">
-                            Please provide a product name.
-                        </div>
-                    </div>
+    
 
                     <div class="form-group">
                         <label for="validation4">Contact Number</label>
@@ -423,7 +428,37 @@
             </div> 
             <!-- Update Modal End -->
           
-
+			<!--DELETE Modal -->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteModalLabel">Confirmation
+						Alert!!!</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure to delete this record?</p>
+				</div>
+				<div class="modal-footer">
+					<div class="float-left">
+						<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+					</div>
+					<form action="DeleteSupplierServlet" method="POST">
+					<div class="float-right">
+						<input type="hidden" id="deleteSup" name="deleteText">
+						 <button id="deleteServlet" class="btn btn-danger" >Confirm</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Delete Modal End -->
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -468,65 +503,59 @@
                 })();
             </script>
 
-<!-- Script for update modal -->
 
 <script>
+		$(document).ready(
 
-$(document).ready(function(){
-	
-	$(document).on('click', 'a[data-role=update]', function (){
-	
-		var id = $(this).data('id');
-		var supName = $('#' + id).children('td[data-target=nameS]').text();
-		var proId = $('#' + id).children('td[data-target=pidS]').text();
-		var proName = $('#' + id).children('td[data-target=pnameS]').text();
-		var telNo = $('#' + id).children('td[data-target=telS]').text();
-		var email = $('#' + id).children('td[data-target=emailS]').text();
-		var address = $('#' + id).children('td[data-target=addressS]').text();
-	
-		
-		$('#sName').val(supName);
-		$('#sTelNo').val(telNo);
-		$('#sEmail').val(email);
-		$('#sAddress').val(address);
-		$('#pId').val(proId);
-		$('#pName').val(proName);
-		$('#userId').val(id);
-		$('#updateModal').modal('toggle');
-		
-	})
-});
+		function() {
+			$(document).on('click', 'a[data-role=delete]', function() {
 
-$('#save').click(function(){
-	
-	 	 var id  = $('#userId').val(); 
-	   	 var id =  $('#id').val();
-	     var name =  $('#sName').val();
-	     var tNo = $('sTelNo').val();
-	     var supEmail = $('sEmail').val();
-	     var supAddress = $('aAddress').val();
-	     var proId = $('#pId').val();
-	     var proName = $('#pName').val();
-	   
-	    $.ajax({
-	        url      : 'UpdateSupplierServlet',
-	        method   : 'post', 
-	        data     : {supplierid : id, supName : name, telNo : tNo, email : supEmail, address : supAddress, proId : proId, proName : proName},
-	        success  : function(response){
-	                     
-	                       $('#'+id).children('td[data-target=idK]').text(id);
-	                       $('#'+id).children('td[data-target=nameK]').text(name);
-	                       $('#'+id).children('td[data-target=nicK]').text(nic);
-	                       $('#'+id).children('td[data-target=idK]').text(id);
-	                       $('#'+id).children('td[data-target=nameK]').text(name);
-	                       $('#'+id).children('td[data-target=nicK]').text(nic);
-	                       $('#myModal').modal('toggle'); 
-	
-	                   }
-	    });
-});
-</script>
+				var id = $(this).data('id');
+				var sid = $('#' + id).children('td[data-target=sid]').text();
 
+				$('#deleteSup').val(sid);
+
+			})
+		});
+
+		$('#deleteServlet').click(function() {
+
+			var id = $('#deleteSup').val();
+
+			$.ajax({
+				url : 'DeleteSupplierServlet',
+				method : 'post',
+				data : {
+					id : id,
+				},
+				success : function(response) {
+
+					$('#' + id).children('td[data-target=sid]').text(id);
+				}
+			});
+
+		});
+	</script>
+	
+		<script>
+
+		$(document).on("click", ".deletemodal", function () {
+		     var supid = $(this).data('id');
+		     $(".modal-footer #deleteSup").val( supid );
+		     // As pointed out in comments, 
+		     // it is unnecessary to have to manually call the modal.
+		     // $('#addBookDialog').modal('show');
+		})
+	</script>
+	
+		<script>
+
+		$(document).on("click", ".deletemodal", function () {
+		     var supid = $(this).data('id');
+		     $(".modal-footer #deleteSup").val( supid );
+		   
+		})
+	</script>
 
 </body>
 </html>

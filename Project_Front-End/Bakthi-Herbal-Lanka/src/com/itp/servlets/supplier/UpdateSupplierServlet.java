@@ -52,7 +52,7 @@ public class UpdateSupplierServlet extends HttpServlet {
 		supplier.setEmail(request.getParameter("email"));
 		supplier.setAddress(request.getParameter("address"));
 		supplier.setProductId(request.getParameter("proId"));
-		supplier.setProductName(request.getParameter("proName"));
+		
 		
 		ISupplierServices iSupplierServices = new SupplierServiceImpl();
 		iSupplierServices.updateSupplier(supplierID, supplier);

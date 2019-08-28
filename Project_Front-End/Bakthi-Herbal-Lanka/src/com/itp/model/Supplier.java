@@ -8,8 +8,6 @@ public class Supplier {
 	
 	private String productId;
 	
-	private String productName;
-	
 	private String contactNo;
 	
 	private String email;
@@ -38,14 +36,6 @@ public class Supplier {
 
 	public void setProductId(String productId) {
 		this.productId = productId;
-	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
 	}
 
 	public String getContactNo() {

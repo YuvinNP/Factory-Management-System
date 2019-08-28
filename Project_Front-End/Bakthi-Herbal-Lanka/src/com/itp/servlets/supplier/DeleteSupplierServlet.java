@@ -39,9 +39,10 @@ public class DeleteSupplierServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/html");
+		System.out.println("Delete servlet");
 		
-		String supplierID = request.getParameter("supplierID");
+		String supplierID = request.getParameter("deleteText");
+		System.out.println(supplierID);
 		
 		ISupplierServices iSupplierService = new SupplierServiceImpl();
 		iSupplierService.removeSupplier(supplierID);

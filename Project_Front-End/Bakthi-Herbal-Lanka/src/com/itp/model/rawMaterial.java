@@ -6,11 +6,13 @@ public class rawMaterial {
 	
 	private String rawMaterialName;
 	
-	private String supplierID;
+	private String rawMaterialDes;
 	
 	private String storeID;
 	
 	private double unitPrice;
+	
+	private String status;
 
 	public String getRawMaterialID() {
 		return rawMaterialID;
@@ -28,12 +30,12 @@ public class rawMaterial {
 		this.rawMaterialName = rawMaterialName;
 	}
 
-	public String getSupplierID() {
-		return supplierID;
+	public String getRawMaterialDes() {
+		return rawMaterialDes;
 	}
 
-	public void setSupplierID(String supplierID) {
-		this.supplierID = supplierID;
+	public void setRawMaterialDes(String rawMaterialDes) {
+		this.rawMaterialDes = rawMaterialDes;
 	}
 
 	public String getStoreID() {
@@ -52,6 +54,13 @@ public class rawMaterial {
 		this.unitPrice = unitPrice;
 	}
 	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 	
 	

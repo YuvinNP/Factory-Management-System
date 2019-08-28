@@ -10,9 +10,13 @@ package com.itp.model;
  */
 public class Login {
 	
+	private String img;
+	
 	private String loginID;
 	
-	private String name;
+	private String fname;
+	
+	private String lname;
 	
 	private String designation;
 	
@@ -20,6 +24,14 @@ public class Login {
 	
 	private String password;
 
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
 	public String getLoginID() {
 		return loginID;
 	}
@@ -28,14 +40,22 @@ public class Login {
 		this.loginID = loginID;
 	}
 
-	public String getName() {
-		return name;
+	public String getFname() {
+		return fname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
 
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	
 	public String getDesignation() {
 		return designation;
 	}

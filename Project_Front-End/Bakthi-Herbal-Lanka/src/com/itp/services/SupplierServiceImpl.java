@@ -58,7 +58,6 @@ public class SupplierServiceImpl implements ISupplierServices {
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, supplier. getEmail());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, supplier.getAddress());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, supplier.getProductId());
-			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, supplier.getProductName());
 			preparedstatement.execute();
 			connection.commit();
 
@@ -208,7 +207,6 @@ private ArrayList<Supplier> actionOnSupplier(String supplierID) {
 			supplier.setEmail(resultSet.getString(CommonConstants.COLUMN_INDEX_FOUR));
 			supplier.setAddress(resultSet.getString(CommonConstants.COLUMN_INDEX_FIVE));
 			supplier.setProductId(resultSet.getString(CommonConstants.COLUMN_INDEX_SIX));
-			supplier.setProductName(resultSet.getString(CommonConstants.COLUMN_INDEX_SEVEN));
 			supplierList.add(supplier);
 		}
 
@@ -261,7 +259,6 @@ public Supplier updateSupplier(String supplierID, Supplier supplier) {
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, supplier.getEmail());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, supplier.getAddress());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, supplier.getProductId());
-			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, supplier.getProductName());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, supplier.getSupplierID());
 			preparedstatement.executeUpdate();
 

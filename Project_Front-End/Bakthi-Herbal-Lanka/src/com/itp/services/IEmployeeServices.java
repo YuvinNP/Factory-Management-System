@@ -42,6 +42,6 @@ public interface IEmployeeServices {
 	 */
 	public void removeEmployee(String employeeID);
 	
-	
+	public ArrayList<String> getEmployeeIDs();
 	
 }

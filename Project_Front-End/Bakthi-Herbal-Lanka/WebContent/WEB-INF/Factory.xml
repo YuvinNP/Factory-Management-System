@@ -4,7 +4,7 @@
 <!-- EMPLOYEE BEGIN -->
 <query id="insert_employee">
         <![CDATA[
-          	insert into supplier (empId, image, fname, lname, gender, email, contactNo, address, unit, designation, empType) 
+          	insert into employee (empId, image, fname, lname, gender, email, contactNo, address, unit, designation, empType) 
           	values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ]]>
 	</query>
@@ -39,8 +39,8 @@
 
 	<query id="insert_login_creds">
         <![CDATA[
-          	insert into login (loginId, name, designation, username, password) 
-          	values (?, ?, ?, ?, ?)
+          	insert into login (loginId, image, fname, lname, designation, username, password) 
+          	values (?, ?, ?, ?, ?, ?, ?)
         ]]>
 	</query>
 
@@ -56,6 +56,11 @@
         ]]>
 	</query>
 
+	<query id="all_logins">
+         <![CDATA[        
+            select * from login
+        ]]>
+	</query>
 <!-- LOGIN END -->
 
 <!--SUPPLIER BEGIN -->
@@ -63,8 +68,8 @@
 	<!-- Select all supplier Query -->
 	<query id="insert_supplier">
         <![CDATA[
-          	insert into supplier (supID, supName, telNo, email, address, proId, proName) 
-          	values (?, ?, ?, ?, ?, ?, ?)
+          	insert into supplier (supID, supName, telNo, email, address, proId) 
+          	values (?, ?, ?, ?, ?, ?)
         ]]>
 	</query>
 
@@ -93,7 +98,7 @@
 	<query id="update_supplier">
          <![CDATA[        
             update supplier as s 
-            set s.supName = ?, s.telNo = ?, s.email = ?, s.address = ?, s.proId = ?, s.proName = ?  
+            set s.supName = ?, s.telNo = ?, s.email = ?, s.address = ?, s.proId = ?
             where s.supID = ?
         ]]>
 	</query>
@@ -107,13 +112,14 @@
 	</query>
 <!-- SUPPLIER END -->
 
+
 <!-- Raw Material BEGIN -->
 
-	<!-- Select all raw-material Query -->
+	<!-- insert raw-material Query -->
 	<query id="insert_rawMaterial">
         <![CDATA[
-          	insert into raw_material (rID, rName, supID, storeID, uPrice) 
-          	values (?, ?, ?, ?, ?)
+          	insert into raw_material (rID, rName, rDescription, storeID, uPrice, status) 
+          	values (?, ?, ?, ?, ?, ?)
         ]]>
 	</query>
 
@@ -142,7 +148,7 @@
 	<query id="update_rawMaterial">
          <![CDATA[        
             update raw_material as rm 
-            set rm.rName = ?, rm.supID = ?, rm.storeID = ?, rm.uPrice = ? 
+            set rm.rName = ?, rm.rDescription = ?, rm.storeID = ?, rm.uPrice = ?, rm.status 
             where rm.rID = ?
         ]]>
 	</query>
@@ -154,7 +160,18 @@
             
         ]]>
 	</query>
+<!-- Raw Material END -->
+
+<!-- LEAVE BEGIN -->
+
+<query id="insert_leave">
+        <![CDATA[
+          	insert into leaves (leaveId, empId, empName, date, description) 
+          	values (?, ?, ?, ?, ?)
+        ]]>
+	</query>
+<!-- LEAVE END -->
 
 </Querys>
-<!-- Raw Material END -->
+
 

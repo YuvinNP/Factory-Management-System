@@ -42,7 +42,7 @@ public class EmployeeServiceImpl implements IEmployeeServices {
 	@Override
 	public void addEmployee(Employee employee) {
 
-		String employeeID = CommonUtilities.generateEmployeeID(getEmployeeIDs());
+//		String employeeID = CommonUtilities.generateEmployeeID(getEmployeeIDs());
 
 		try {
 
@@ -53,7 +53,8 @@ public class EmployeeServiceImpl implements IEmployeeServices {
 			connection.setAutoCommit(false);
 
 			// get employee ids
-			employee.setEmployeeID(employeeID);
+//			employee.setEmployeeID(employeeID);
+			
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, employee.getEmployeeID());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, employee.getImg());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, employee.getFname());
@@ -148,7 +149,7 @@ public class EmployeeServiceImpl implements IEmployeeServices {
 	 * @see com.itp.services.IEmployeeServices#getEmployeeIDs()
 	 */
 
-	private ArrayList<String> getEmployeeIDs() {
+	public ArrayList<String> getEmployeeIDs() {
 
 		ArrayList<String> idList = new ArrayList<String>();
 		try {

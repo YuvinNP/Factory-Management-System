@@ -3,6 +3,7 @@ package com.itp.services;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+import com.itp.model.Supplier;
 import com.itp.model.rawMaterial;
 
 
@@ -32,4 +33,17 @@ public interface IRawMaterialServices {
    public ArrayList<rawMaterial> getRawMaterilas();
    
    public ArrayList<String> getRawMaterialIDs();
+   
+   /**
+	 * Update existing raw materials
+	 * @param rMaterialID
+	 * @param rmaterial
+	 * 
+	 * @return
+	 */
+	public rawMaterial updateRawMaterial(String rMaterialID, rawMaterial rmaterial);
+
+public void removeRawMaterial(String rawMaterialID);
+
+
 }

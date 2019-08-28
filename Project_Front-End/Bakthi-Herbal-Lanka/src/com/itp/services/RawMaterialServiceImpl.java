@@ -49,9 +49,10 @@ public class RawMaterialServiceImpl implements IRawMaterialServices{
 		raw_material.setRawMaterialID(rawMaterialID);
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, raw_material.getRawMaterialID());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, raw_material.getRawMaterialName());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, raw_material.getSupplierID());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, raw_material.getRawMaterialDes());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, raw_material. getStoreID());
 		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FIVE, raw_material.getUnitPrice());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, raw_material.getStatus());
 		preparedstatement.execute();
 		connection.commit();
 		
@@ -172,9 +173,10 @@ private ArrayList<rawMaterial> actionOnrawMaterial(String rawMaterialID){
 			
 			raw_Material.setRawMaterialID(resultSet.getString(CommonConstants.COLUMN_INDEX_ONE));
 			raw_Material.setRawMaterialName(resultSet.getString(CommonConstants.COLUMN_INDEX_TWO));
-			raw_Material.setSupplierID(resultSet.getString(CommonConstants.COLUMN_INDEX_THREE));
+			raw_Material.setRawMaterialDes(resultSet.getString(CommonConstants.COLUMN_INDEX_THREE));
 			raw_Material.setStoreID(resultSet.getString(CommonConstants.COLUMN_INDEX_FOUR));
 			raw_Material.setUnitPrice(resultSet.getDouble(CommonConstants.COLUMN_INDEX_FIVE));
+			raw_Material.setStatus(resultSet.getString(CommonConstants.COLUMN_INDEX_SIX));
 			rawMaterialList.add(raw_Material);
 			
 		}
@@ -199,6 +201,63 @@ private ArrayList<rawMaterial> actionOnrawMaterial(String rawMaterialID){
 	return rawMaterialList;
 }
 
+
+
+/**
+ * This method delete an rawMaterial based on the provided ID
+ * 
+ * @param rawMaterialID
+ *            - Delete rawMaterial according to the filtered rawMaterial details
+ * @throws SQLException
+ *             - Thrown when database access error occurs or this method is
+ *             called on a closed connection
+ * @throws ClassNotFoundException
+ *             - Thrown when an application tries to load in a class through
+ *             its string name using
+ * @throws SAXException
+ *             - Encapsulate a general SAX error or warning
+ * @throws IOException
+ *             - Exception produced by failed or interrupted I/O operations.
+ * @throws ParserConfigurationException
+ *             - Indicates a serious configuration error.
+ * @throws NullPointerException
+ *             - Service is not available
+ */
+public void removeRawMaterial(String rMaterialID) {
+
+	// Before deleting check whether raw material ID is available
+	if (rMaterialID != null && !rMaterialID.isEmpty()) {
+		/*
+		 * Remove rawMaterial query will be retrieved from Factory.xml
+		 */
+		try {
+			connection = DBConnection.getDBConnection();
+			preparedstatement = connection
+					.prepareStatement(QueryUtilities.queryByID(CommonConstants.QUERY_ID_REMOVE_RawMaterial));
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, rMaterialID);
+			preparedstatement.executeUpdate();
+		} catch (SQLException | SAXException | IOException | ParserConfigurationException
+				| ClassNotFoundException e) {
+			log.log(Level.SEVERE, e.getMessage());
+		} finally {
+			/*
+			 * Close prepared statement and database connectivity at the end
+			 * of transaction
+			 */
+			try {
+				if (preparedstatement != null) {
+					preparedstatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				log.log(Level.SEVERE, e.getMessage());
+			}
+		}
+	}
+}
+
 /**
  * Get the updated raw material
  * 
@@ -208,4 +267,50 @@ private ArrayList<rawMaterial> actionOnrawMaterial(String rawMaterialID){
  * @return return the raw material object
  * 
  */
+@Override
+public rawMaterial updateRawMaterial(String rMaterialID, rawMaterial rmaterial) {
+
+	/*
+	 * Before fetching employee it checks whether employee ID is available
+	 */
+	if (rMaterialID != null && !rMaterialID.isEmpty()) {
+		/*
+		 * UpdateRawMaterial query will be retrieved from Factory.xml
+		 */
+	try {
+		connection = DBConnection.getDBConnection();
+		preparedstatement = connection
+				.prepareStatement(QueryUtilities.queryByID(CommonConstants.QUERY_ID_UPDATE_RawMaterial));
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, rmaterial.getRawMaterialName());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, rmaterial.getRawMaterialDes());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, rmaterial.getStoreID());
+		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FOUR, rmaterial.getUnitPrice());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, rmaterial.getStatus());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, rmaterial.getRawMaterialID());
+		preparedstatement.executeUpdate();
+
+	}catch (SQLException | SAXException | IOException | ParserConfigurationException | 
+			ClassNotFoundException e) {
+		log.log(Level.SEVERE, e.getMessage());
+	}finally {
+
+		/*
+		 * Close prepared statement and database connectivity at the end
+		 * of transaction
+		 */
+		try {
+			if(preparedstatement != null) {
+				preparedstatement.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}catch (SQLException e) {
+			log.log(Level.SEVERE,  e.getMessage());
+		}
+	}
+}
+// Get the updated employee
+return getRawMaterialByID(rMaterialID);
+}
 }

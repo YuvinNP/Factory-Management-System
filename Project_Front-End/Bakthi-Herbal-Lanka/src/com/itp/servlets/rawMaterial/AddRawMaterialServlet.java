@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.itp.model.rawMaterial;
 import com.itp.services.IRawMaterialServices;
@@ -46,9 +47,10 @@ public class AddRawMaterialServlet extends HttpServlet {
 		rawMaterial rm = new rawMaterial();
 		
 		rm.setRawMaterialName(request.getParameter("rName"));
-		rm.setSupplierID(request.getParameter("supplierId"));
+		rm.setRawMaterialDes(request.getParameter("rawDes"));
 		rm.setStoreID(request.getParameter("storeID"));
 		rm.setUnitPrice(Double.parseDouble(request.getParameter("unitPrice")));
+		rm.setStatus(request.getParameter("status"));
 	
 		IRawMaterialServices iRawMaterialServices = new RawMaterialServiceImpl();
 		iRawMaterialServices.addRawMaterial(rm);
