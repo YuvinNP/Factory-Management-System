@@ -18,13 +18,13 @@ public interface ILoginServices {
 	public void addLogin(Login login);
 
 	
-	public Employee getLoginByID(String empoyeeID);
+	public Login getLoginByID(String empoyeeID);
 	
 	
 	public ArrayList<Login> getLogin();
 	
 	
-	public Employee updateLogin(String loginID, Login login);
+	public Login updateLogin(String loginID, Login login);
 
 	
 	public void removeLogin(String loginID);

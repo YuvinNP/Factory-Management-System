@@ -82,6 +82,7 @@ public class CommonConstants {
 
 	public static final String QUERY_ID_REMOVE_LOGIN  = "remove_login";
 
+	public static final String QUERY_ID_UPDATE_LOGIN = "update_logins";
 	
 	/* leave */
 	public static final String LEAVE_ID_PRIFIX = "LE1";

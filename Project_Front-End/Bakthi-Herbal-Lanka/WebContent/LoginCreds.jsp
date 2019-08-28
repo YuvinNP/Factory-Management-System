@@ -188,13 +188,13 @@
 
                     </div>
 
-                    <div class="col col-md-1">
+                  <!--   <div class="col col-md-1">
                         <button class="btn btn add-btn" type="button" data-toggle="modal" data-target="#exampleModal"
                             style="background:#4628B8; color:white; width:120px; height:39px;">
                             <i class="fas fa-plus"></i>
                             <span>Add New</span>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -223,16 +223,16 @@
 
                 		for(Login login : loginList){		
                 %>
-                        <tr class="grid">
+                        <tr id="<%=login.getLoginID()%>"class="grid">
                             <td><img class="table-img"  style="border-radius: 70px;margin-right:20px;width:55px;" src="images/imagefiles/<%=login.getImg()%>"></td>
-                            <td><%=login.getLoginID() %></td>
+                            <td data-target="loginid"><%=login.getLoginID() %></td>
                             <td><%=login.getFname() %></td>
                             <td><%=login.getLname() %></td>
                             <td><%=login.getDesignation() %></td>
-                            <td><%=login.getUsername() %></td>
-                            <td><%=login.getPassword() %></td>
+                            <td data-target="username"><%=login.getUsername() %></td>
+                            <td data-target="passwrd"><%=login.getPassword() %></td>
                             
-                            <td><button class="btn btn-success"><i class="fas fa-pen-square center"></i></button></td>
+                            <td><a href="#" data-role="update" data-id="<%=login.getLoginID()%>" class="btn btn-success" >Update</a></td>
                             <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
                             
                         </tr>
@@ -248,6 +248,40 @@
 
     </div>
 
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Change Login Credentials</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+					<form action="LoginUpdateServlet" method="POST">
+				<div class="modal-body">
+					<label>Username</label>
+					<input type="text" id="uname" name="uName" class="form-control">
+					
+					<label>Password</label>
+					<input type="password" id="pwrd" name="pWrd" class="form-control">
+					
+				</div>
+				<div class="modal-footer">
+					<div class="float-left">
+						<button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+					</div>
+					<input type="hidden" id="lid" name="lId">
+					<div class="float-right">
+						<input type="hidden" id="deleteEmp" name="deleteText">
+						 <button id="updateServlet" class="btn btn-warning" >Confirm</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
     
 
@@ -294,6 +328,40 @@
         $("#imageUpload").change(function () {
             readURL(this);
         });</script>
+        
+        <script>
+        	
+/*         $(document).ready(function(){
+        	
+    		$(document).on('click', 'a[data-role=update]', function () {
+    		    var id = $(this).data('id'); 
+    			var uname = $('#' + id).children('td[data-taget=username]').text();
+    		    
+    		   
+    		    
+    		    $('#uname').val(id);
+    		     $('#updateModal').modal('toggle');
+    		})
+    }); */
+    
+    $(document).ready(function(){
+
+        $(document).on('click','a[data-role=update]',function(){
+      	 
+            var id  = $(this).data('id');
+            var firstName  = $('#'+id).children('td[data-target=username]').text();
+			var passWord = $('#'+id).children('td[data-target=passwrd]').text();
+			var loginId = $('#'+id).children('td[data-target=loginid]').text();
+			
+			$('#lid').val(loginId); 
+            $('#uname').val(firstName);
+            $('#pwrd').val(passWord);
+            $('#updateModal').modal('toggle');
+      	  
+        })
+  });
+    
+        </script>
 </body>
 
 </html>

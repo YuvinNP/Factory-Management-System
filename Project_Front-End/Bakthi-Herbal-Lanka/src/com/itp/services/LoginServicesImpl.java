@@ -87,7 +87,7 @@ public class LoginServicesImpl implements ILoginServices {
 
 	
 	@Override
-	public Employee getLoginByID(String empoyeeID) {
+	public Login getLoginByID(String empoyeeID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -101,8 +101,42 @@ public class LoginServicesImpl implements ILoginServices {
 
 
 	@Override
-	public Employee updateLogin(String loginID, Login login) {
-		// TODO Auto-generated method stub
+	public Login updateLogin(String loginID, Login login) {
+	
+		if(loginID != null && !loginID.isEmpty() ) {
+			
+			
+			try {
+				
+				connection = DBConnection.getDBConnection();
+				preparedstatement = connection.prepareStatement(QueryUtilities.queryByID(CommonConstants.QUERY_ID_UPDATE_LOGIN));
+				preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, login.getUsername());
+				preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, login.getPassword());
+				preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, login.getLoginID());
+				preparedstatement.executeUpdate();
+				
+			}catch (SQLException | SAXException | IOException | ParserConfigurationException
+					| ClassNotFoundException e) {
+				log.log(Level.SEVERE, e.getMessage());
+			} finally {
+				/*
+				 * Close prepared statement and database connectivity at the end
+				 * of transaction
+				 */
+				try {
+					if (preparedstatement != null) {
+						preparedstatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (SQLException e) {
+					log.log(Level.SEVERE, e.getMessage());
+				}
+			}
+			
+		}
+		
 		return null;
 	}
 

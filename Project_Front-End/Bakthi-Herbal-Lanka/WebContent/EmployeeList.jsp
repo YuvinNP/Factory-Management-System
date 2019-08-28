@@ -189,14 +189,14 @@
 
 							for (Employee employee : emplList) {
 						%>
-						<tr>
+						<tr id="<%=employee.getEmployeeID()%>">
 
 							<td data-target="img"><img class="table-img"
 								style="border-radius: 70px;width: 55px;"
 								src="images/imagefiles/<%=employee.getImg()%>"></td>
-							<td ><%=employee.getEmployeeID() %></td>
-							<td data-target="fname"><%=employee.getFname()%></td>
-							<td data-target="lname"><%=employee.getLname()%></td>
+							<td data-target="eid"><%=employee.getEmployeeID() %></td>
+							<td data-target="fnameK"><%=employee.getFname()%></td>
+							<td data-id="lname"><%=employee.getLname()%></td>
 							<td data-target="gender"><%=employee.getGender()%></td>
 							<td data-target="email"><%=employee.getEmail()%></td>
 							<td data-target="contactNo"><%=employee.getContactNo()%></td>
@@ -212,7 +212,7 @@
 										data-target="#deleteModal">
 										<i class="far fa-trash-alt"></i>
 									</button></td> -->
-							<td> <a data-toggle="modal" data-id="" class="updatemodal btn btn-success" href="#updateModal">Update</i></a></td>
+							<td> <a href="#" data-role="update" data-id="<%=employee.getEmployeeID()%>" class="btn btn-success" >Update</a></td>
 									
 							<td> <a data-toggle="modal" data-id="<%=employee.getEmployeeID()%>" class="deletemodal btn btn-danger" href="#deleteModal"><i class="far fa-trash-alt"></i></a></td>
 						</tr>
@@ -260,29 +260,89 @@
 
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+		<div class="modal-dialog update-modal" role="document">
+		<div class="modal-content "
+				style="width: 650px; margin-bottom: 30px;">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Update</h5>
+					<h4 class="title col-md-6">Update</h4>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Are you sure to delete this record?</p>
-				</div>
-				<div class="modal-footer">
-					<div class="float-left">
-						<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+					<div class="container">
+						<form method="POST" action="UpdateEmployeeServlet"
+							enctype="multipart/form-data">
+							<div class="custom-file col-md-4 center"
+										style="margin-left: 200px;">
+
+
+										<img id="blah" src="./images/avatar.png" alt="your image"
+											style="width: 100px; height: 100px; border-radius: 70px;">
+										<input type="file" id="imgInp" name="image">
+
+
+
+									</div>
+									<div class="col-md-10" style="margin-left:50px;">
+										<label>First Name</label>
+										<input type="text" class="form-control" id="fname" name="fName" >
+									</div>
+									<div class="col-md-10" style="margin-left:50px;">
+										<label>Last Name</label>
+										<input type="text" class="form-control" id="lname" name="lName" >
+									</div>
+									<div class="col-md-10" style="margin-left:50px;">
+										<label>Email</label>
+										<input type="email" class="form-control" id="email" name="eMail" >
+									</div>
+									<div class="col-md-10" style="margin-left:50px;">
+										<label>Contact No</label>
+										<input type="text" class="form-control" id="contactno" name="contactNo" >
+									</div>
+									<div class="col-md-10" style="margin-left:50px;">
+										<label for="inputContact">Address</label> 
+										<input type="text" class="form-control" name="address" id="inputAddress">
+									</div>
+									<div class="col-md-10" style="margin-left:50px;">
+										<label>Unit</label> <select id="inputUnit" name="unit"
+												class="form-control">
+												<option selected="" value="Default">Choose...</option>
+												<option>Production</option>
+												<option>Management</option>
+												<option>Distribution</option>
+											</select>
+									</div>
+										<div class="col-md-10" style="margin-left:50px;">
+										<label>Designation</label> <select id="inputDesig2"
+												onchange="changeType();" class="form-control"
+												name="designation">
+												<option selected value="Default">Choose...</option>
+												<option>Worker</option>
+												<option>Manager</option>
+												<option>Marketing Agent</option>
+											</select>
+									</div>
+									
+									<div class="col-md-10" style="margin-left:50px;">
+										<label>Employee Type</label> <select id="inputType2"
+												onchange="changeDesig();" class="form-control"
+												name="empType">
+												<option selected value="Default">Choose...</option>
+												<option>Full-Time</option>
+												<option>Part-Time</option>
+
+											</select>
+									</div>
+									<div style="margin-left:65px; margin-top:20px;width:550px;padding-bottom:10px;">
+									<button id="update" class="btn btn-success col-md-10">Update</button>
+									</div>
+						</form>
 					</div>
-					<form action="DeleteEmployeeServlet" method="POST">
-					<div class="float-right">
-						<input type="hidden" id="deleteEmp" name="deleteText">
-						 <button id="deleteServlet" class="btn btn-danger" >Confirm</button>
-					</div>
-					</form>
+
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -494,49 +554,8 @@
 		});
 	</script>
 
-	<script>
-		$(document).ready(
-
-		function() {
-			$(document).on('click', 'a[data-role=delete]', function() {
-
-				var id = $(this).data('id');
-				var eid = $('#' + id).children('td[data-target=eid]').text();
-
-				$('#deleteEmp').val(eid);
-
-			})
-		});
-
-		$('#deleteServlet').click(function() {
-
-			var id = $('#deleteEmp').val();
-
-			$.ajax({
-				url : 'DeleteEmployeeServlet',
-				method : 'post',
-				data : {
-					id : id,
-				},
-				success : function(response) {
-
-					$('#' + id).children('td[data-target=eid]').text(id);
-				}
-			});
-
-		});
-	</script>
 	
-	<script>
 
-		$(document).on("click", ".deletemodal", function () {
-		     var empid = $(this).data('id');
-		     $(".modal-footer #deleteEmp").val( empid );
-		     // As pointed out in comments, 
-		     // it is unnecessary to have to manually call the modal.
-		     // $('#addBookDialog').modal('show');
-		})
-	</script>
 
 	<script>
 
@@ -548,14 +567,18 @@
 	</script>
 		
 			<script>
-
-		$(document).on("click", ".updatemodal", function () {
-		     var empid = $(this).data('id');
-		     $(".modal-footer #deleteEmp").val( empid );
-		     // As pointed out in comments, 
-		     // it is unnecessary to have to manually call the modal.
-		     // $('#addBookDialog').modal('show');
+$(document).ready(function(){
+	
+		$(document).on('click', 'a[data-role=update]', function () {
+		    var id = $(this).data('id'); 
+			var fstname = $('#' + id).children('td[data-taget=fnameK]').text();
+		    var lastname = $(lname).data('id');
+		   
+		    
+		    $('.modal-body #fname').val(fstname);
+		     $('#updateModal').modal('toggle');
 		})
+});
 	</script>
 	
 </body>

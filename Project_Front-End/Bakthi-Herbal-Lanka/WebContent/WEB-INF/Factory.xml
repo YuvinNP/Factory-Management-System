@@ -33,6 +33,13 @@
         ]]>
 	</query>
 
+<query id="update_employees">
+         <![CDATA[        
+            update employee as e 
+            set e.image = ?, e.fname = ?, e.lname = ?, e.email = ?, e.contactNo = ?, e.unit = ?, e.designation = ?  
+            where e.empId = ?
+        ]]>
+	</query>
 <!-- EMPLOYEE END -->
 
 <!-- LOGIN BEGIN -->
@@ -61,6 +68,15 @@
             select * from login
         ]]>
 	</query>
+	
+	<query id="update_logins">
+         <![CDATA[        
+            update login as l
+            set l.username = ?, l.password = ?
+            where l.loginId = ?
+        ]]>
+	</query>
+	
 <!-- LOGIN END -->
 
 <!--SUPPLIER BEGIN -->
