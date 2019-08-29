@@ -259,7 +259,7 @@ public Supplier updateSupplier(String supplierID, Supplier supplier) {
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, supplier.getEmail());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, supplier.getAddress());
 			preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, supplier.getProductId());
-			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, supplier.getSupplierID());
+			preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, supplier.getSupplierID());
 			preparedstatement.executeUpdate();
 
 		} catch (SQLException | SAXException | IOException | ParserConfigurationException
@@ -283,7 +283,7 @@ public Supplier updateSupplier(String supplierID, Supplier supplier) {
 		}
 	}
 	// Get the updated employee
-	return getSupplierByID(supplierID);
+	return null;
 }
 
 /**

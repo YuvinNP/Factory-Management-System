@@ -100,7 +100,7 @@
              <span class="post"> add new suppliers</span>
 
          </div>
-         <div class="bt"> <button class="btn btn-primary" type="submit">Add Supplier</button></div>
+         <div class="bt"><a href="supplierList.jsp"><button class="btn btn-primary" type="submit">Add Supplier</button></a></div>
           </div>
       </div>
 
@@ -114,7 +114,7 @@
              <span class="post">add new raw-materials</span>
 
          </div>
-         <div class="bt"> <button class="btn btn-primary" type="submit">Add Raw Material</button></div>
+         <div class="bt"><a href="rawMaterialList.jsp"><button class="btn btn-primary" type="submit">Add Raw Material</button></a></div>
           </div>
       </div>
 

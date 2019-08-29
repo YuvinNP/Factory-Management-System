@@ -164,7 +164,7 @@
 	<query id="update_rawMaterial">
          <![CDATA[        
             update raw_material as rm 
-            set rm.rName = ?, rm.rDescription = ?, rm.storeID = ?, rm.uPrice = ?, rm.status 
+            set rm.rName = ?, rm.rDescription = ?, rm.storeID = ?, rm.uPrice = ?, rm.status = ? 
             where rm.rID = ?
         ]]>
 	</query>

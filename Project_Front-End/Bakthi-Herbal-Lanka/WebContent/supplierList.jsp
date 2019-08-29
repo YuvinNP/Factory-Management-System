@@ -32,6 +32,23 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/table.css">
 
+<style>
+.has-search .form-control {
+	padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+	position: absolute;
+	z-index: 2;
+	display: block;
+	width: 2.375rem;
+	height: 2.375rem;
+	line-height: 2.375rem;
+	text-align: center;
+	pointer-events: none;
+	color: #aaa;
+}
+</style>
 
 </head>
 <body>
@@ -95,7 +112,7 @@
 
             <ul class="list-unstyled components mb-2">
                 <p>Dashboard</p>
-                <li class="active">
+              <!--   <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -108,30 +125,44 @@
                             <a href="#">Home 3</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
+                
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">Profile</a>
                 </li>
+                
+                 <li>
+                    <a href="supplierList.jsp">Add Supplier</a>
+                </li>
+                
+                  <li>
+                    <a href="supplierList.jsp">Supplier List</a>
+                </li>
+                
+                 <li>
+                    <a href="rawMaterialList.jsp">Add Raw Material</a>
+                </li>
+                
+                 <li>
+                    <a href="rawMaterialList.jsp">Raw Material List</a>
+                </li>
+                
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reports</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Page 1</a>
+                            <a href="#">Supplier Report</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
+                            <a href="#">Raw Material Report</a>
                         </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
+                       
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Portfolio</a>
+                    <a href="#">Settings</a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+               
             </ul>
 
 
@@ -161,13 +192,13 @@
 
     <div class="col-md-auto">
 
-      <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 purple-border" type="text" placeholder="Search" aria-label="Search" style="width:300px;">
-        <div class="input-group-append">
-          <a><button class="btn btn-search input-group-text purple lighten-1" id="basic-text1" style="background:#4628B8;"><i class="fas fa-search text-white"
-              aria-hidden="true" ></i></span>
-        </div></a>
-      </div>
+     <div class="form-group has-search">
+		<span class="fa fa-search form-control-feedback"></span>
+		<input type="text" id="search" name="search" onkeyup="Search()"
+			class="form-control purple lighten-1" placeholder="Search">
+	</div>
+
+     
 
     </div>
 
@@ -185,7 +216,7 @@
 
 
 <br/>
-  <div class="table-wrapper-scroll-y my-custom-scrollbar">
+  <div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 600px;">
           <table id="dtBasicExample" class="table table-striped table-bordered table-sm" width="100%">
                 <thead>
                     <tr class="p-3 mb-2 bg-success text-white">
@@ -209,27 +240,20 @@
 					for(Supplier supplier : arrayList){
 				%>
 			
-                    <tr>
-                    	<td> <%=supplier.getSupplierID() %></td>
-                        <td data-target="nameS"> <%=supplier.getSupplierName() %> </td>
-                        <td data-target="telS"> <%=supplier.getContactNo() %> </td>
-                        <td data-target="emailS"> <%=supplier.getEmail() %> </td>
-                        <td data-target="addressS"> <%=supplier.getAddress() %> </td>
-						<td data-target="pidS"> <%=supplier.getProductId() %> </td>
+                    <tr id="<%=supplier.getSupplierID()%>">
+                    	<td data-target="idS"><%=supplier.getSupplierID() %></td>
+                        <td data-target="nameS"><%=supplier.getSupplierName() %></td>
+                        <td data-target="telS"><%=supplier.getContactNo() %></td>
+                        <td data-target="emailS"><%=supplier.getEmail() %></td>
+                        <td data-target="addressS"><%=supplier.getAddress() %></td>
+						<td data-target="pidS"><%=supplier.getProductId() %></td>
 						
 		
-					<%-- 		<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
-	                        <td><button class="btn btn-success" data-toggle="modal" data-target="#updateModal" data-role="update" data-id="<%=supplier.getSupplierID()%>"><i class="fas fa-pen-square" style="font-size:15px;"></i></button></td>
-							
-							<form action="DeleteSupplierServlet" method="POST">
+					
 						
-							<input type="hidden" name="supplierID" value="<%=supplier.getSupplierID()%>">
-	                        <td><button class="btn btn-danger" style="margin-left: 10px;"><i class="far fa-trash-alt"></i></button></td>
-						</form> --%>
+					<!-- 	<input type="hidden" id ="getsupplierid"> -->
 						
-						<input type="hidden" id ="getsupplierid">
-						
-						<td> <a data-toggal="modal" data-id="" class="updatemodal btn btn-success" href="#updateModal"><i class="fas fa-pen-square" style="font-size:15px;"></i></a> </td>
+						<td> <a data-toggal="modal" data-role="update" data-id="<%=supplier.getSupplierID() %>" class="btn btn-success" href="#updateModal"><i class="fas fa-pen-square" style="font-size:15px;"></i></a> </td>
 						
 						<td> <a data-toggle="modal" data-id="<%=supplier.getSupplierID() %>" class="deletemodal btn btn-danger" href="#deleteModal"><i class="far fa-trash-alt"></i></a></td>
 						
@@ -258,12 +282,12 @@
                
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content" style=" background-color: #fefefe;">
                   
                   <div class="modal-header">
-                    <h4 class="modal-title">Add Supplier</h4> 
+                    <h3 class="modal-title">Add Supplier</h3> 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -271,7 +295,7 @@
                   
                   <div class="modal-body">
 
-                    <form action="AddSupplierServlet" method="POST" id = "supplierRegistration" >
+                    <form action="AddSupplierServlet" method="POST" id = "supplierRegistration" style="height:130%; width:100%;">
                     
                      <div class="form-group">
                      
@@ -281,7 +305,7 @@
                      String sID = CommonUtilities.generateSupplierID(iSupServices.getSupplierIDs());
                      %>
                        <label>Supplier ID</label>
-                       <input type="text" value="<%=sID %>" class="form-control" name="supplierID">
+                       <input type="text" value="<%=sID %>" class="form-control" name="supplierID" Readonly>
                     </div>
                     
                     <div class="form-group">
@@ -312,7 +336,7 @@
 					
                     <div class="form-group">
                         <label for="validation4">Contact Number</label>
-                        <input type="number" class="form-control" name="telNo" id="validation4" placeholder="Contact Number" required>
+                        <input type="text" class="form-control" name="telNo" id="validation4" placeholder="Contact Number" required>
                             <div class="invalid-feedback">
                                 Please provide a contact number.
                             </div>
@@ -351,11 +375,11 @@
             
    	          <!-- Update Modal -->
             <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalCenterTitle"  aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content" style=" background-color: #fefefe;">
                   
                   <div class="modal-header">
-                    <h4 class="modal-title">Update Supplier</h4> 
+                    <h4 class="modal-title">Edit Supplier Details</h4> 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -364,11 +388,6 @@
                   <div class="modal-body">
 
                     <form action="UpdateSupplierServlet" method="POST" id = "supplierUpadte" >
-                    
-                     <div class="form-group">
-                       <label>Supplier ID</label>
-                       <input type="text" class="form-control" name="supplierID" id="sID" placeholder="Supplier ID">
-                    </div>
                     
                     <div class="form-group">
                         <label for="validation1">Supplier Name</label>
@@ -379,7 +398,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="validation2">Product ID</label>
+                        <label for="validation2">Raw Material ID</label>
                         <input type="text" class="form-control" name="proId" id="pId" placeholder="Product Name" required>
                         <div class="invalid-feedback">
                             Please provide a product ID.
@@ -390,7 +409,7 @@
 
                     <div class="form-group">
                         <label for="validation4">Contact Number</label>
-                        <input type="number" class="form-control" name="telNo" id="sTelNo" placeholder="Contact Number" required>
+                        <input type="text" class="form-control" name="telNo" id="sTelNo" placeholder="Contact Number" required>
                             <div class="invalid-feedback">
                                 Please provide a contact number.
                             </div>
@@ -411,15 +430,21 @@
                             Please provide a valid Address.
                         </div>
                     </div>   
-                    
-                    <input type="hidden" id="userId" class="form-control">          
-
-              
+                  
                   <div class="modal-footer">
                   
-                    <input class="btn btn-primary pull-right" type="submit" value="Confirm">
+                  <div class="float-left">
+						<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+					</div>
+					
+					<input type="hidden" id="sID" name="SupID">
+					
+					<div class="float-right">
+						<input type="hidden" id="deleteSup" name="deleteText">
+						 <button id="updateServlet" class="btn btn-warning" >Confirm</button>
+					</div>
                   
-                  	<input class="btn btn-default pull-left" type="button" value="Cancel">
+                 
                   </div>
                      </form>
                      </div>
@@ -555,6 +580,55 @@
 		     $(".modal-footer #deleteSup").val( supid );
 		   
 		})
+	</script>
+
+<!-- Update Modal -->
+<script>
+$(document).ready(function(){
+
+    $(document).on('click','a[data-role=update]',function(){
+  	 
+        var id  = $(this).data('id');
+        var supName  = $('#'+id).children('td[data-target=nameS]').text();
+		var contact = $('#'+id).children('td[data-target=telS]').text();
+		var email = $('#'+id).children('td[data-target=emailS]').text();
+		var address = $('#'+id).children('td[data-target=addressS]').text();
+		var productID = $('#'+id).children('td[data-target=pidS]').text();
+		var supplierID = $('#'+id).children('td[data-target=idS]').text();
+		
+		$('#sID').val(supplierID); 
+        $('#sName').val(supName);
+        $('#sTelNo').val(contact);
+        $('#sEmail').val(email); 
+        $('#sAddress').val(address);
+        $('#pId').val(productID);
+        
+        $('#updateModal').modal('toggle');
+  	  
+    })
+});
+</script>
+
+<!-- Search function -->
+	<script>
+		function Search() {
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("search");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("dtBasicExample");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
 	</script>
 
 </body>

@@ -566,7 +566,7 @@
 		})
 	</script>
 		
-			<script>
+<script>
 $(document).ready(function(){
 	
 		$(document).on('click', 'a[data-role=update]', function () {

@@ -44,18 +44,26 @@ public class UpdateSupplierServlet extends HttpServlet {
 		
 		Supplier supplier = new Supplier();
 		
-		String supplierID = request.getParameter("supplierid");
+		System.out.println("hello");
+		String sid = request.getParameter("SupID");
+		System.out.println(sid);
+		String supname =request.getParameter("supName");
+		String suptelNo = request.getParameter("telNo");
+		System.out.println(suptelNo);
+		String supemail = request.getParameter("email");
+		String supaddress = request.getParameter("address");
+		String pid = request.getParameter("proId");
 		
-		supplier.setSupplierID(supplierID);
-		supplier.setSupplierName(request.getParameter("supName"));
-		supplier.setContactNo(request.getParameter("telNo"));
-		supplier.setEmail(request.getParameter("email"));
-		supplier.setAddress(request.getParameter("address"));
-		supplier.setProductId(request.getParameter("proId"));
+		supplier.setSupplierName(supname);
+		supplier.setSupplierID(sid);
 		
+		supplier.setContactNo(suptelNo);
+		supplier.setAddress(supaddress);
+		supplier.setEmail(supemail);
+		supplier.setProductId(pid);
 		
 		ISupplierServices iSupplierServices = new SupplierServiceImpl();
-		iSupplierServices.updateSupplier(supplierID, supplier);
+		iSupplierServices.updateSupplier(sid, supplier);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/supplierList.jsp");
 		dispatcher.forward(request, response);

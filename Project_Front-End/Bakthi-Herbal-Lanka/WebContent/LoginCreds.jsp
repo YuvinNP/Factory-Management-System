@@ -213,7 +213,7 @@
                             <th scope="col">Username</th>
                             <th scope="col">Password</th>
                             <th scope="col">Edit</th>
-                            <th scope="col">Delete</th>
+                            <th scope="col">Delete<"WebContent/WEB-INF/Factory.xml"/th>
                         </tr>
                     </thead>
                     <tbody>

@@ -50,7 +50,7 @@ public class RawMaterialServiceImpl implements IRawMaterialServices{
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_ONE, raw_material.getRawMaterialID());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_TWO, raw_material.getRawMaterialName());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, raw_material.getRawMaterialDes());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, raw_material. getStoreID());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FOUR, raw_material.getStoreID());
 		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FIVE, raw_material.getUnitPrice());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, raw_material.getStatus());
 		preparedstatement.execute();
@@ -286,7 +286,7 @@ public rawMaterial updateRawMaterial(String rMaterialID, rawMaterial rmaterial) 
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_THREE, rmaterial.getStoreID());
 		preparedstatement.setDouble(CommonConstants.COLUMN_INDEX_FOUR, rmaterial.getUnitPrice());
 		preparedstatement.setString(CommonConstants.COLUMN_INDEX_FIVE, rmaterial.getStatus());
-		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SEVEN, rmaterial.getRawMaterialID());
+		preparedstatement.setString(CommonConstants.COLUMN_INDEX_SIX, rmaterial.getRawMaterialID());
 		preparedstatement.executeUpdate();
 
 	}catch (SQLException | SAXException | IOException | ParserConfigurationException | 

@@ -110,24 +110,33 @@
 
 			<ul class="list-unstyled components mb-2">
 				<p>Dashboard</p>
-				<li class="active"><a href="#homeSubmenu"
+				<!-- <li class="active"><a href="#homeSubmenu"
 					data-toggle="collapse" aria-expanded="false"
 					class="dropdown-toggle">Home</a>
 					<ul class="collapse list-unstyled" id="homeSubmenu">
 						<li><a href="#">Home 1</a></li>
 						<li><a href="#">Home 2</a></li>
 						<li><a href="#">Home 3</a></li>
-					</ul></li>
-				<li><a href="#">About</a></li>
+					</ul></li> -->
+					
+				<li><a href="#">Profile</a></li>
+				
+				<li><a href="supplierList.jsp">Add Supplier</a></li>
+				
+				<li><a href="supplierList.jsp">Supplier List</a></li>
+				
+				<li><a href="rawMaterialList.jsp">Add Raw Material</a></li>
+				
+				<li><a href="rawMaterialList.jsp">Raw Material List</a></li>
+				
 				<li><a href="#pageSubmenu" data-toggle="collapse"
-					aria-expanded="false" class="dropdown-toggle">Pages</a>
+					aria-expanded="false" class="dropdown-toggle">Reports</a>
 					<ul class="collapse list-unstyled" id="pageSubmenu">
-						<li><a href="#">Page 1</a></li>
-						<li><a href="#">Page 2</a></li>
-						<li><a href="#">Page 3</a></li>
+						<li><a href="#">Supplier Report</a></li>
+						<li><a href="#">Raw Material Report</a></li>
+		
 					</ul></li>
-				<li><a href="#">Portfolio</a></li>
-				<li><a href="#">Contact</a></li>
+			
 			</ul>
 
 
@@ -158,28 +167,20 @@
 					<div class="col-md-auto">
 
 						<div class="form-group has-search">
-							<span class="fa fa-search form-control-feedback"></span>
-							 <input type="text" id="search" name="search" onkeyup="Search()" class="form-control purple lighten-1" placeholder="Search">
+							<span class="fa fa-search form-control-feedback"></span> <input
+								type="text" id="search" name="search" onkeyup="Search()"
+								class="form-control purple lighten-1" placeholder="Search">
 						</div>
 
 
-						<!--  <div class="input-group md-form form-sm form-2 pl-0">
-      	 <span class="fa fa-search form-control-feedback"></span>
-        <input class="form-control my-0 py-1 purple-border" type="text" id="search" name="search" placeholder="Search" onkeyup="Search()" aria-label="Search" style="width:300px;">
-        
-        <div class="input-group-append">
-          <a><button class="btn btn-search input-group-text purple lighten-1" id="btnSearch" name="btnSearch" style="background:#4628B8;"><i class="fas fa-search text-white"
-              aria-hidden="true" ></i></span>
-        </div></a>
-      </div>  -->
-
+					
 					</div>
 
 					<div class="col col-lg-2">
 
 						<button class="btn btn-primary" type="button" data-toggle="modal"
 							data-target="#exampleModal"
-							style="background: #4628B8; color: white; width: 150px; height: 35px;">
+							style="background: #4628B8; color: white; width: 170px; height: 35px;">
 							<i class="fas fa-plus"></i> <span>Add Raw Material</span>
 						</button>
 
@@ -191,7 +192,7 @@
 
 			<br />
 			<div class="table-wrapper-scroll-y my-custom-scrollbar"
-				style="height: 650px;">
+				style="height: 600px;">
 				<table id="rawMaterialTable"
 					class="table table-striped table-bordered table-sm" width="100%">
 					<thead>
@@ -216,23 +217,22 @@
 							for (rawMaterial rMaterial : arrayList) {
 						%>
 
-						<tr>
-							<td><%=rMaterial.getRawMaterialID()%></td>
-							<td><%=rMaterial.getRawMaterialName()%></td>
-							<td><%=rMaterial.getRawMaterialDes()%></td>
-							<td><%=rMaterial.getStoreID()%></td>
-							<td><%=rMaterial.getUnitPrice()%></td>
-							<td><%=rMaterial.getStatus()%> <input type="hidden"
-								id="getsupplierid">
-							<td><a data-toggal="modal" data-id=""
-								class="updatemodal btn btn-success" href="#updateModal"><i
-									class="fas fa-pen-square" style="font-size: 15px;"></i></a></td>
+						<tr id="<%=rMaterial.getRawMaterialID()%>">
+							<td data-target="idR"><%=rMaterial.getRawMaterialID()%></td>
+							<td data-target="nameR"><%=rMaterial.getRawMaterialName()%></td>
+							<td data-target="desR"><%=rMaterial.getRawMaterialDes()%></td>
+							<td data-target="stID"><%=rMaterial.getStoreID()%></td>
+							<td data-target="upR"><%=rMaterial.getUnitPrice()%></td>
+							<td data-target="statusR"><%=rMaterial.getStatus()%></td>
+							
+							<input type="hidden" id="getRawMaterialId">
+							<td><a data-toggal="modal" data-role="update" data-id="<%=rMaterial.getRawMaterialID()%>" class="updatemodal btn btn-success" href="#updateModal"><i
+								class="fas fa-pen-square" style="font-size: 15px;"></i></a></td>
 
 							<td><a data-toggle="modal"
 								data-id="<%=rMaterial.getRawMaterialID()%>"
 								class="deletemodal btn btn-danger" href="#deleteModal"><i
 									class="far fa-trash-alt"></i></a></td>
-
 
 						</tr>
 						<%
@@ -259,13 +259,13 @@
 		</div>
 	</div>
 
-	
+
 
 
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 			<div class="modal-content" style="background-color: #fefefe;">
 
 				<div class="modal-header">
@@ -290,12 +290,13 @@
 								String rawID = CommonUtilities.generateRawMaterialID(iRMaterialServices.getRawMaterialIDs());
 							%>
 							<label>Material ID</label> <input type="text" value="<%=rawID%>"
-								class="form-control" name="materialID">
+								class="form-control" name="materialID" Readonly>
 						</div>
 
 						<div class="form-group">
-							<label for="validation1">Material Name</label> <input type="text"
-								class="form-control" name="rName" id="rmName"
+							<label for="validation1">Material Name</label> 
+							<input type="text"
+								class="form-control" name="rName" id="validation1"
 								placeholder="Raw Material Name" required>
 							<div class="invalid-feedback">Please provide a material
 								name.</div>
@@ -303,7 +304,7 @@
 
 						<div class="form-group">
 							<label for="validation2">Raw Material Description</label> <input
-								type="text" class="form-control" name="rawDes" id="rmDes"
+								type="text" class="form-control" name="rawDes" id="validation2"
 								placeholder="Raw Material Name" required>
 							<div class="invalid-feedback">Please provide a description.
 							</div>
@@ -313,34 +314,34 @@
 						<div class="form-group">
 							<label for="validation3">Store ID</label> <select
 								id="inputstoreID" name="storeID" class="form-control">
-								<option selected=" " value="Default">Choose...</option>
-								<option>ST001</option>
-								<option>ST002</option>
-								<option>ST003</option>
+								<option selected=" " value="">Choose...</option>
+								<option value="ST001">ST001</option>
+								<option value="ST002">ST002</option>
+								<option value="ST003">ST003</option>
 							</select>
 						</div>
 
 						<div class="form-group">
-							<label for="validation4">Unit Price</label> <input type="number"
-								class="form-control" name="unitPrice" id="uPrice"
+							<label for="validation4">Unit Price</label> <input type="text"
+								class="form-control" name="unitPrice" id="validation4"
 								placeholder="Unit Price" required>
 							<div class="invalid-feedback">Please provide a Unit Price.
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="validation5">Status</label> <select id="inputStatus"
+							<label for="validation5">Status</label> <select id="validation5"
 								name="status" class="form-control">
-								<option selected=" " value="Default">Choose...</option>
-								<option>Active</option>
-								<option>Inactive</option>
+								<option selected=" " value="">Choose...</option>
+								<option value="Active">Active</option>
+								<option value="Inactive">Inactive</option>
 							</select>
 						</div>
 
 						<div class="modal-footer">
 
-							<input id="btnConfirm" class="btn btn-primary" type="submit"
-								value="Confirm">
+							<input id="btnConfirm" class="btn btn-primary btn-block" type="submit"
+								value="Submit" />
 
 						</div>
 					</form>
@@ -349,6 +350,86 @@
 		</div>
 	</div>
 	<!-- Modal End -->
+
+
+	<!-- Update Modal Begin -->
+	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
+		aria-labelledby="updateModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content" style="background-color: #fefefe;">
+
+				<div class="modal-header">
+					<h4 class="modal-title">Edit Raw Material Details</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+
+				</div>
+
+				<div class="modal-body">
+
+					<form action="UpdateRawMaterialServlet" method="POST" id="RawMaterialUpdate">
+
+						<div class="form-group">
+							<label for="validation1">Raw Material Name</label>
+							<input type="text" class="form-control" name="rName" id="rName" placeholder="Raw Material Name" required>
+							<div class="invalid-feedback">Please provide a raw material name.</div>
+						</div>
+
+						<div class="form-group">
+							<label for="validation2">Raw Material Description</label>
+							 <input type="text" class="form-control" name="rawDes" id="rawDes" placeholder="Raw Material Name" required>
+							<div class="invalid-feedback">Please provide a description.
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label for="validation3">Store ID</label> <select id="inputstoreID" name="storeID" class="form-control">
+								<option selected=" " value="Default">Choose...</option>
+								<option>ST001</option>
+								<option>ST002</option>
+								<option>ST003</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="validation4">Unit Price</label> 
+							<input type="text" class="form-control" name="uPrice" id="uPrice" placeholder="Unit Price" required>
+							<div class="invalid-feedback">Please provide a Unit Price.
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="validation5">Status</label> <select id="Status"
+								name="Status" class="form-control">
+								<option selected=" "  value="Default">Choose...</option>
+								<option>Active</option>
+								<option>Inactive</option>
+							</select>
+						</div>
+
+						<div class="modal-footer">
+
+							<div class="float-left">
+								<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+							</div>
+
+							<input type="hidden" id="rID" name="rID">
+
+							<div class="float-right">
+								<input type="hidden" id="deleteRaw" name="deleteText">
+								<button id="updateServlet" class="btn btn-warning">Confirm</button>
+							</div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Update Modal End -->
 
 	<!--DELETE Modal -->
 	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
@@ -382,15 +463,7 @@
 	</div>
 	<!-- Delete Modal End -->
 
-	<!-- Alert for confirmation -->
-
-
-	<div id="alert" class="alert alert-warning collapse"
-		style="position: relative;">
-		<a href="#" class="close" data-dismiss="alert">&times;</a> <strong>Success!</strong>
-		You added a supplier to the system.
-	</div>
-
+	
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -414,10 +487,10 @@
 
 	<script>
 		$(document).ready(function() {
-			$('#dtBasicExample').DataTable();
+			$('#rawMaterialTable').DataTable();
 			$('.dataTables_length').addClass('bs-select');
 		});
-	</script>
+	</script> 
 
 	<script>
 		// Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -426,8 +499,7 @@
 			window.addEventListener('load',
 					function() {
 						// Fetch all the forms we want to apply custom Bootstrap validation styles to
-						var forms = document
-								.getElementsByClassName('needs-validation');
+						var forms = document.getElementsByClassName('needs-validation');
 						// Loop over them and prevent submission
 						var validation = Array.prototype.filter.call(forms,
 								function(form) {
@@ -454,19 +526,9 @@
 		})
 	</script>
 
-	<!-- alert -->
-	<script>
-		$(document).ready(function() {
-			$('#btnConfirm').click(function() {
-				$('#alert').show('fade');
-
-				/* setTimeOut(function(){
-					$('#alert').hidden('fade');
-				}, 2000); */
-			});
-		});
-	</script>
-
+	
+	
+<!-- Search function -->
 	<script>
 		function Search() {
 			var input, filter, table, tr, td, i, txtValue;
@@ -487,5 +549,65 @@
 			}
 		}
 	</script>
+
+	<!-- Update Modal -->
+	<script>
+		$(document).ready(function() {
+
+					$(document).on('click','a[data-role=update]',function() {
+
+								var id = $(this).data('id');
+								var rawName = $('#'+id).children('td[data-target=nameR]').text();
+								var rawDesc = $('#'+id).children('td[data-target=desR]').text();
+								var storeID = $('#'+id).children('td[data-target=stID]').text();
+								var uPrice = $('#'+id).children('td[data-target=upR]').text();
+								var status = $('#'+id).children('td[data-target=statusR]').text();
+								var rid = $('#'+id).children('td[data-target=idR]').text();
+
+								$('#rID').val(rid);
+								$('#rName').val(rawName);
+								$('#rawDes').val(rawDesc);
+								$('#storeID').val(storeID);
+								$('#uPrice').val(uPrice);
+								$('#Status').val(status);
+
+								$('#updateModal').modal('toggle');
+
+							})
+				});
+	</script>
+	
+	<!-- drop down validation in modal-->
+	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+	<script type="text/javascript">
+   /*  $(function () {
+        $("#btnConfirm").click(function () {
+            var storeID = $("#inputstoreID");
+            if (storeID.val() == "") {
+                //If the "Please Select" option is selected display error.
+                alert("Please select an option!");
+                return false;
+            }
+            return true;
+        });
+    }); */
+</script>
+
+<script type="text/javascript">
+   /*  $(function () {
+        $("#btnConfirm").click(function () {
+            var status = $("#validation5");
+            if (status.val() == "") {
+                //If the "Please Select" option is selected display error.
+                alert("Please select an option!");
+                return false;
+            }
+            return true;
+        });
+    }); */
+</script>
+
+
+
 </body>
 </html>
