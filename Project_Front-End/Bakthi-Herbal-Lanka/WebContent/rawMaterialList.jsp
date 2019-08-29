@@ -218,12 +218,12 @@
 						%>
 
 						<tr id="<%=rMaterial.getRawMaterialID()%>">
-							<td data-target="idR"><%=rMaterial.getRawMaterialID()%></td>
-							<td data-target="nameR"><%=rMaterial.getRawMaterialName()%></td>
-							<td data-target="desR"><%=rMaterial.getRawMaterialDes()%></td>
-							<td data-target="stID"><%=rMaterial.getStoreID()%></td>
-							<td data-target="upR"><%=rMaterial.getUnitPrice()%></td>
-							<td data-target="statusR"><%=rMaterial.getStatus()%></td>
+							<td data-target="idR"><%=rMaterial.getRawMaterialID() %></td>
+							<td data-target="nameR"><%=rMaterial.getRawMaterialName() %></td>
+							<td data-target="desR"><%=rMaterial.getRawMaterialDes() %></td>
+							<td data-target="stID"><%=rMaterial.getStoreID() %></td>
+							<td data-target="upR"><%=rMaterial.getUnitPrice() %></td>
+							<td data-target="statusR"><%=rMaterial.getStatus() %></td>
 							
 							<input type="hidden" id="getRawMaterialId">
 							<td><a data-toggal="modal" data-role="update" data-id="<%=rMaterial.getRawMaterialID()%>" class="updatemodal btn btn-success" href="#updateModal"><i
@@ -341,7 +341,7 @@
 						<div class="modal-footer">
 
 							<input id="btnConfirm" class="btn btn-primary btn-block" type="submit"
-								value="Submit" />
+								value="Submit">
 
 						</div>
 					</form>
@@ -578,9 +578,9 @@
 	</script>
 	
 	<!-- drop down validation in modal-->
-	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+	<!--  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
 	<script type="text/javascript">
-   /*  $(function () {
+    $(function () {
         $("#btnConfirm").click(function () {
             var storeID = $("#inputstoreID");
             if (storeID.val() == "") {
@@ -590,11 +590,11 @@
             }
             return true;
         });
-    }); */
+    }); 
 </script>
 
 <script type="text/javascript">
-   /*  $(function () {
+     $(function () {
         $("#btnConfirm").click(function () {
             var status = $("#validation5");
             if (status.val() == "") {
@@ -604,9 +604,9 @@
             }
             return true;
         });
-    }); */
+    }); 
 </script>
-
+ -->
 
 
 </body>

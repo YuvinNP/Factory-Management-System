@@ -45,6 +45,7 @@ public class UpdateRawMaterialServlet extends HttpServlet {
 		
 		response.setContentType("text/html");
 		
+		System.out.println("hello");
 		String rid = request.getParameter("rID");
 		String rawName =request.getParameter("rName");
 		String rDescription = request.getParameter("rDescription");
@@ -59,6 +60,7 @@ public class UpdateRawMaterialServlet extends HttpServlet {
 		material.setStoreID(storeID);
 		material.setUnitPrice(unitPrice);
 		material.setStatus(status);
+		material.setRawMaterialID(rid);
 		
 		IRawMaterialServices iRawMaterialServices = new RawMaterialServiceImpl();
 		iRawMaterialServices.updateRawMaterial(rid, material);
